@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>客户通</title>
+  <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+  <link href="css/font-awesome.min.css" rel="stylesheet" media="screen">
+  <link href="css/android.css" rel="stylesheet" media="screen">
+
+  <script src="js/jquery-2.0.0.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+
+  <script type="application/javascript" src="js/iscroll-lite.js"></script>
+  <script type="text/javascript">
+  
+  $(document).ready(function() {
+    $(".side-slide-trigger").click(function() {
+      $(".wrapper").addClass("side-slide-right");
+      $("header").addClass("side-slide-right");
+      $("footer").addClass("side-slide-right");
+      $(".side-slide-mask").addClass("mask-on").delay(0).queue(function () {
+        $(this).addClass("side-slide-right");
+        $(this).dequeue();
+      });
+    });
+    $(".side-slide-mask").click(function() {
+      $(".side-slide-mask").removeClass("mask-on").removeClass("side-slide-right");
+      $(".wrapper").removeClass("side-slide-right");
+      $("header").removeClass("side-slide-right");
+      $("footer").removeClass("side-slide-right");
+    })
+  })
+  </script>
+
+
+</head>
+<body>
+
+
+
+  <div class="side-slide-left">
+    <ul class="list-style-3">
+      <li><a href="user-manage.html"><i class="icon-group"></i> 客户管理</a></li>
+      <li class="active"><a href="survey-list.html"><i class="icon-comments"></i> 群发调查</a></li>
+      <li><a href="weibo-list.html"><i class="icon-twitter"></i> 微博分析</a></li>
+      <li><a href="setting.html"><i class="icon-cogs"></i> 设置</a></li>
+    </ul>
+    <h2>客户通</h2>
+  </div>
+
+  <div class="side-slide-mask"></div>
+
+  <header>
+    调查列表
+    <div class="header-right">
+      <a href="#" class="btn-style btn-4"><i class="icon-refresh"></i> 同步数据</a>
+    </div>
+    <div class="header-left">
+      <a href="#" class="side-slide-trigger btn-style btn-4"><i class="icon-reorder"></i></a>
+    </div>
+  </header>
+
+  <div id="wrapper" class="wrapper scrollable">
+    <div class="wrapper-inner">
+      <div class="form-wrapper">
+        <h6>2013年2月15日 创建</h6>
+        <h4>12年客户调查问卷</h4>
+        <p>感谢您在过去的一年中对我们的支持和帮助，回复是或否，也可以回复Y或N。感谢您的参与</p>
+        <hr />
+        <h5>收件人</h5>
+        <a href="" class="btn-style btn-3">2012年客户<i class="icon-angle-right"></i></a>
+        <h5>调查统计</h5>
+        <table class="table table-style">
+          <tr>
+            <th>问题类型</th>
+            <td>是否类型</td>
+          </tr>
+          <tr>
+            <th>回复总数</th>
+            <td>1000人</td>
+          </tr>
+          <tr>
+            <th>是（Y）</th>
+            <td>203（20.3%）</td>
+          </tr>
+          <tr>
+            <th>否（N）</th>
+            <td>690（69.0%）</td>
+          </tr>
+          <tr>
+            <th>未回复</th>
+            <td>107（10.7%）</td>
+          </tr>
+        </table>
+        
+        <a href="" class="btn-style btn-2">结束调查</a>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <ul class="footer-nav footer-nav-2tabs">
+      <li class="active"><a href="survey-list.html"><i class="icon-group"></i><br />当前调查</a></li>
+      <li><a href="survey-history.html"><i class="icon-comments"></i><br />历史调查</a></li>
+    </ul>
+  </footer>
+
+
+</body>
+</html>
