@@ -2,7 +2,7 @@
  * Created by lishaodan on 14-7-9.
  */
 angular.module('yoDemoApp')
-    .controller('activity_listCtrl', function ($scope) {
+    .controller('activity_listCtrl', function ($scope,$location) {
         $scope.awesomeThings = [
             'HTML5 Boilerplate',
             'AngularJS',
@@ -16,7 +16,9 @@ angular.module('yoDemoApp')
         }
 
        // console.log($scope.activity.name);
-
+        $scope.createActivity=function(){
+            $location.path('/activity_create');
+        }
 
 
     });

@@ -83,7 +83,7 @@ hr {
 	box-shadow: 0px 0px 3px 0px rgba(0,0,0, .8);
 	padding:0;
 	color:#fff;
-	font-size:16px;
+	font-size:20px;
 	text-align:center;
 	-webkit-transition: all 0.3s ease;
 }
@@ -419,6 +419,7 @@ footer {
 	background-image:-webkit-gradient(linear, 0 0, 0 100%, color-stop(0, #5ab6fc), color-stop(0.02, #1296eb), color-stop(1, #0073c4));
 	color: #fff;
 	border: 1px solid #005b9b;
+    font-size: 20px;
 }
 
 .btn-4:hover {
