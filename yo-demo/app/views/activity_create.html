@@ -1,18 +1,22 @@
 
 <div class = "header">
    创建活动
+    <div class="header-left">
+        <button  class=" btn-4" ng-click="return()"  ng-show="show">返回</button>
+    </div>
 </div>
 <div id="wrapper" class="wrapper scrollable">
+    <h4 >活动名称</h4>
 
-
-         <h4 >活动名称</h4>
-
-         <input  class="input-full" type="text" ng-model="activity_name" ng-change="IsUseStr()" >
-        <div class="textAlert">
+    <input  class="input-full" type="text" ng-model="activity_name" ng-change="IsUseStr()" >
+    <div class="textAlert">
         <p  ng-show="textAlert">*活动名称重复</p>
-        </div>
+    </div>
 
-         <button class="btn-style btn-4"  ng-click= "create_Activity()" ng-disabled="!activity_name">创建</button>
+    <button class="btn-style btn-4"  ng-click= "create_Activity()" ng-disabled="!activity_name">创建</button>
+
+
+
 
 </div>
 

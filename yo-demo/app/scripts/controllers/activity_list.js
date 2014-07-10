@@ -15,9 +15,15 @@ angular.module('yoDemoApp')
             $scope.activity=activities[i];
         }
 
-       // console.log($scope.activity.name);
+
         $scope.createActivity=function(){
             $location.path('/activity_create');
+        }
+
+        if(activities.length==0) {
+
+            $location.path('/activity_create');
+
         }
 
 

@@ -22,8 +22,8 @@ angular
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/activity_create.html',
-        controller: 'activity_createCtrl'
+        templateUrl: 'views/activity_list.html',
+        controller: 'activity_listCtrl'
       })
       .when('/about', {
         templateUrl: 'views/about.html',
