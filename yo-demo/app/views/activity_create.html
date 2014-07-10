@@ -7,12 +7,12 @@
 
          <h4 >活动名称</h4>
 
-         <input name="activity_value"  class="input-full" type="text" onclick="checkValue() " ng-model="checked">
+         <input  class="input-full" type="text" ng-model="activity_name" ng-change="IsUseStr()" >
+        <div class="textAlert">
+        <p  ng-show="textAlert">*活动名称重复</p>
+        </div>
 
-         <button class="btn-style btn-4"   ng-click= "createActivity()" ng-disabled="checked">创建</button>
-
-
-
+         <button class="btn-style btn-4"  ng-click= "create_Activity(activity_name)" ng-disabled="!activity_name">创建</button>
 
 </div>
 

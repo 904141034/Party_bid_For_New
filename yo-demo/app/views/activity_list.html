@@ -2,9 +2,14 @@
 <div class = "header">
     活动列表
 </div>
-<div id="wrapper" class="wrapper scrollable">
+<div id="wrapper" class="wrapper">
 
 
+   <ul>
+       <li ng-repeat='activity in activities'>
+           <p>{{activity}}</p>
+       </li>
+   </ul>
 
 
 

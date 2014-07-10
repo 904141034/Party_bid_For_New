@@ -7,7 +7,9 @@ angular.module('yoDemoApp')
             'HTML5 Boilerplate',
             'AngularJS',
             'Karma'
-        ];
+        ]
+
+        $scope.activity=[{'name':null}];
 
 
     });
