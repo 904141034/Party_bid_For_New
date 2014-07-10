@@ -9,7 +9,14 @@ angular.module('yoDemoApp')
             'Karma'
         ]
 
-        $scope.activity=[{'name':null}];
+        var activities = JSON.parse(localStorage.getItem('activities')) || [];
+        $scope.activities=activities;
+        for(var i=0;i<activities.length;i++){
+            $scope.activity=activities[i];
+        }
+
+       // console.log($scope.activity.name);
+
 
 
     });

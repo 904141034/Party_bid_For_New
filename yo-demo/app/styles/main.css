@@ -76,4 +76,8 @@ body {
   .jumbotron {
     border-bottom: 0;
   }
+  .textAlert{
+      color: #F00;
+      text-align: center;
+  }
 }

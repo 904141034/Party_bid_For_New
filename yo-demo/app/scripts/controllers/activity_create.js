@@ -10,30 +10,34 @@ angular.module('yoDemoApp')
         ];
 
 
-        var activity={};
+        var activity = {};
         //定义activities数组并获取
-        var activities = JSON.parse(localStorage.getItem('activities'))||[];
-        $scope.textAlert="false";
+        var activities = JSON.parse(localStorage.getItem('activities')) || [];
+        $scope.textAlert = "false";
 
 
         $scope.IsUseStr=function(){
 
-
-
         }
-        $scope.create_Activity=function(activity_name){
+
+        $scope.create_Activity=function(){
             //console.log($scope.textAlert);
-            ///判断活动重名
-            for(var i=0;i<activities.length;i++){
-                if($scope.activity_name==activities[i].name){
-                    $scope.textAlert="ture";
 
-                }else{
-                    $scope.textAlert="false";
+                ///判断活动重名
+                for(var i=0;i<activities.length;++i){
+                    if($scope.activity_name==activities[i].name){
+                        $scope.textAlert="true";
 
+                        // console.log(i);
+                    }
+
+                    else{
+                        $scope.textAlert="false";
+
+                    }
                 }
 
-            }
+
            if($scope.textAlert=="false"){
 
             activity.name=$scope.activity_name;
