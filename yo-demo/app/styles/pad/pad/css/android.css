@@ -426,10 +426,10 @@ footer {
 	color: #fff;
 }
 
-.btn-4:active, .btn-4.active {
-	background-image:-webkit-gradient(linear, 0 0, 0 100%, color-stop(0, #1a86cf), color-stop(0.02, #0066b6), color-stop(1, #004f8f));
-	box-shadow: inset 0px 1px 6px -3px rgba(0,0,0, .5);
-}
+/*.btn-4:active, .btn-4.active {*/
+	/*background-image:-webkit-gradient(linear, 0 0, 0 100%, color-stop(0, #1a86cf), color-stop(0.02, #0066b6), color-stop(1, #004f8f));*/
+	/*box-shadow: inset 0px 1px 6px -3px rgba(0,0,0, .5);*/
+/*}*/
 
 .btn-5 {
 	line-height: 45px;
