@@ -37,6 +37,10 @@ angular
          templateUrl: 'views/activity_list.html',
          controller: 'activity_listCtrl'
         })
+        .when('/activity_register',{
+         templateUrl: 'views/activity_register.html',
+         controller: 'activity_registerCtrl'
+        })
       .otherwise({
         redirectTo: '/'
       });
