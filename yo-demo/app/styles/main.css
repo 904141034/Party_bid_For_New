@@ -80,6 +80,7 @@ body {
       color: #F00;
       text-align: center;
       font-size: 16px;
+      margin-top: 20px;
   }
   .btn-style1 {
         display: inline-block;
@@ -107,12 +108,23 @@ body {
 
       width: 100%;
       margin-top: 5%;
+      height:80px;
 
   }
   .createbutton{
       margin-top:10% ;
       width:50%;
       margin-left: 25%;
+  }
+  .inputheight{
+      position:relative;
+      height: 50px;
+      width: 100%;
+      font-size: 26px;
+      tab-size: 16px;
+      margin-top: 10px;
+      border-bottom-color:#888 ;
+      border-top-color: #000000;
   }
 
 
