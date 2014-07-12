@@ -1,22 +1,21 @@
 
-<div class = "header">
-    活动列表
+<header>
+    <div class="titlea">活动列表</div>
     <div class="header-right">
-        <button class=" btn-4" ng-click="createActivity()">
-
-            创建活动</button>
+        <button class=" btn-4" ng-click="createActivity()">创建活动</button>
     </div>
-</div>
+</header>
 
-<div id="wrapper" class="wrapper" style="overflow: hidden;">
+<div id="wrapper" class="wrapper scrollable">
 
-    <ul class="list-style-2" style="-webkit-transition: -webkit-transform 0ms; transition: -webkit-transform 0ms; -webkit-transform-origin: 0px 0px; -webkit-transform: translate3d(0px, 0px, 0);">
+    <ul class="list-style-2">
         <li ng-repeat="activity in activities">
-        <p>{{activity.name}}</p>
+        <h4>{{activity.name}}</h4>
         </li>
     </ul>
 
 </div>
+
 
 
 

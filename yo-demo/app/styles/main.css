@@ -79,17 +79,42 @@ body {
   .textAlert{
       color: #F00;
       text-align: center;
+      font-size: 16px;
   }
   .btn-style1 {
         display: inline-block;
         position: relative;
-        font-size: 16px;
+        font-size: 6px;
         text-align: center;
         text-decoration: none;
         font-weight: normal;
         width: 20%;
         margin-left: 40%;
-        margin-top: 80px;
+        margin-top: 10px;
    }
+  .createActivity{
+     margin-top: 10%;
+     margin-left: 25%;
+     width:50%;
+  }
+  .titlea{
+      font-size: 26px;
+  }
+  .activityName{
+      width :100%;
+  }
+  .createinput{
+
+      width: 100%;
+      margin-top: 5%;
+
+  }
+  .createbutton{
+      margin-top:10% ;
+      width:50%;
+      margin-left: 25%;
+  }
+
+
 
 }

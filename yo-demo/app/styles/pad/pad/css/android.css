@@ -72,20 +72,34 @@ hr {
 	margin-top: 0;
 }
 
-.header {
-	position:absolute; z-index:2;
-	top:0; left:0px;
-    align-content: center;
-	width:100%;
-	height:45px;
-	line-height:45px;
-	background-image:-webkit-gradient(linear, 0 0, 0 100%, color-stop(0, #0079c8), color-stop(1, #0067b6));
-	box-shadow: 0px 0px 3px 0px rgba(0,0,0, .8);
-	padding:0;
-	color:#fff;
-	font-size:25px;
-	text-align:center;
-	-webkit-transition: all 0.3s ease;
+/*.header {*/
+	/*position:absolute; z-index:2;*/
+	/*top:0; left:0px;*/
+    /*align-content: center;*/
+	/*width:100%;*/
+	/*height:45px;*/
+	/*line-height:45px;*/
+	/*background-image:-webkit-gradient(linear, 0 0, 0 100%, color-stop(0, #0079c8), color-stop(1, #0067b6));*/
+	/*box-shadow: 0px 0px 3px 0px rgba(0,0,0, .8);*/
+	/*padding:0;*/
+	/*color:#fff;*/
+	/*font-size:25px;*/
+	/*text-align:center;*/
+	/*-webkit-transition: all 0.3s ease;*/
+/*}*/
+header {
+    position:absolute; z-index:2;
+    top:0; left:0px;
+    width:100%;
+    height:45px;
+    line-height:45px;
+    background-image:-webkit-gradient(linear, 0 0, 0 100%, color-stop(0, #0079c8), color-stop(1, #0067b6));
+    box-shadow: 0px 0px 3px 0px rgba(0,0,0, .8);
+    padding:0;
+    color:#fff;
+    font-size:16px;
+    text-align:center;
+    -webkit-transition: all 0.3s ease;
 }
 
 .header-left {
@@ -161,7 +175,7 @@ footer {
 }
 
 .footer-nav-4tabs li {
-	width: 50%;
+	width: 25%;
 }
 
 .footer-nav-3tabs li {
@@ -252,6 +266,7 @@ footer {
 	padding:10px;
 }
 
+
 .index-action h6 {
 	color: #999;
 }
@@ -324,20 +339,32 @@ footer {
 	color: #808080;
 }
 
+/*.btn-style {*/
+	/*display: inline-block;*/
+	/*position: relative;*/
+	/*font-size: 6px;*/
+	/*text-align: center;*/
+	/*text-decoration: none;*/
+	/*font-weight: normal;*/
+    /*width: 80px;*/
+    /*margin-left: 20%;*/
+    /*margin-top: 10px;*/
+/*}*/
+
+/*.btn-style:hover {*/
+	/*text-decoration: none;*/
+/*}*/
 .btn-style {
-	display: inline-block;
-	position: relative;
-	font-size: 16px;
-	text-align: center;
-	text-decoration: none;
-	font-weight: normal;
-    width: 20%;
-    margin-left: 40%;
-    margin-top: 80px;
+    display: inline-block;
+    position: relative;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: normal;
 }
 
 .btn-style:hover {
-	text-decoration: none;
+    text-decoration: none;
 }
 
 .btn-1 {
@@ -665,13 +692,10 @@ footer {
 	color: #fff;
 }
 
-
-
-
-
 .input-full {
+    position:relative;
 	width: 100%;
-    height: 50px;
+    height: 20px;
     margin-top: 10px;
     border-bottom-color:#888 ;
     border-top-color: #000000;
