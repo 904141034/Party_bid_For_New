@@ -1,14 +1,16 @@
 
-<header>
+<div class="header">
     <div class="titlea">创建活动</div>
     <div class="header-left">
-        <button  class="btn-style btn-4" ng-click="return()"  ng-show="show">返回</button>
+
+        <button  class="btn btn-primary btn-lg btn-block btn-4" ng-click="return()"  ng-show="show">返回</button>
     </div>
-</header>
+</div>
+<hr/>
 <div class="createActivity">
     <h4 class="activityName" >活动名称</h4>
     <div class="createinput">
-        <input class="inputheight "  ng-model="activity_name" type="search" ng-change="IsUseStr()" >
+        <input class="inputheight " ng-model="activity_name" type="search" ng-change="IsUseStr()" >
     </div>
     <div class="textAlert">
         <p  ng-show="textAlert">*活动名称重复</p>

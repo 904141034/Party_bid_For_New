@@ -10,5 +10,18 @@ angular.module('yoDemoApp')
         ];
         $scope.return=function(){
             $location.path('/activity_list');
+        };
+        $scope.start_stop="开始";
+        $scope.start=function(){
+            if($scope.start_stop=="开始"){
+                $scope.start_stop="结束";
+
+            }
+            else if($scope.start_stop=="结束"){
+              event.returnValue=confirm("确认要结束本次报名吗？");
+                $scope.start_stop="开始";
+            }
+
+
         }
     });

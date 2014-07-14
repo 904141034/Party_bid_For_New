@@ -1,13 +1,20 @@
-<header>
+<div class="header">
     <div class="titlea">报名</div>
     <div class="header-left">
-        <button  class=" btn-4" ng-click="return()">返回</button>
+        <button  class="btn btn-primary btn-lg btn-block btn-4" ng-click="return()">返回</button>
     </div>
     <div class="header-right">
-        <button class=" btn-4" >开始</button>
+        <button class="btn btn-primary btn-lg btn-block btn-4" ng-click="start()" >{{start_stop}}</button>
     </div>
-</header>
-<div id="wrapper" class="wrapper" style="overflow: hidden;">
+</div>
+<div id="wrapper" class="wrapper scrollable">
+
+    <ul class="list-style-2">
+        <li ng-repeat="person in people">
+
+        </li>
+    </ul>
+
 </div>
 <footer>
     <ul class="footer-nav footer-nav-2tabs">
