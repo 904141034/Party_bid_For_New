@@ -14,7 +14,32 @@ var native_accessor = {
     },
 
     process_received_message: function (json_message) {
-        parseJson(json_message);
+        //新建一个数组存储报名用户信息
+//        var bmMessages = [];
+        var bmMessage = {};
+        //提取出活动
+        var activities = JSON.parse(localStorage.getItem('activities')) || [];
+
+
+        for (var j = 0; j < activities.length; j++) {
+            if (activities[j].name == "1") {
+                //对 activities[j]创建一个空数组
+                var bmMessages = activities[j].bmMessages || [];
+                var get_name = json_message.messages[0].message.substr(2); //姓名
+                var get_phone = json_message.messages[0].phone; //电话
+                bmMessage.person_name = get_name;
+                bmMessage.phone_number = get_phone;
+                bmMessages.unshift(bmMessage);
+                console.log(bmMessages);
+                activities[j].bmMessages = bmMessages;
+                console.log(activities[j].bmMessages);
+            }
+
+
+        }
+
+
+
     }
 }
 
