@@ -18,8 +18,11 @@ angular.module('yoDemoApp')
 
             }
             else if($scope.start_stop=="结束"){
-              event.returnValue=confirm("确认要结束本次报名吗？");
-                $scope.start_stop="开始";
+             event.returnValue=confirm("确认要结束本次报名吗？");
+                if(event.returnValue){
+                    $scope.start_stop="开始";
+                }
+
             }
 
 
