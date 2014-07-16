@@ -11,8 +11,13 @@
 <div id="wrapper" class="wrapper scrollable">
 
     <ul class="list-style-2">
-        <li ng-repeat="message in messages">
-            <h4>{{message.person_name}} {{message.phone_number}}</h4>
+        <li ng-repeat="bmMessage in bmMessages">
+<h4>
+       <div class="message_left">{{bmMessage.person_name}}</div>
+        <div class="message_right" >{{bmMessage.phone_number}}</div>
+</h4>
+
+
         </li>
     </ul>
 

@@ -19,25 +19,27 @@ angular.module('yoDemoApp')
                 $location.path('/activity_list');
 
             }
+            if(InnerAct.act==null){
+                $location.path('/activity_list');
+            }
 
         };
         $scope.start_stop="开始";
         $scope.registerNum=0;
 
-
         $scope.start=function(){
 
             if($scope.start_stop=="开始"){
+
+                $scope.start_stop="结束";
                 var InnerAct=JSON.parse(localStorage.getItem("InnerAct"))||[];
-                if(InnerAct.act==false){
-                    InnerAct.act=true;
-                    localStorage.setItem("InnerAct",JSON.stringify(InnerAct));
-                    $scope.start_stop="结束";
+                if(InnerAct.act==false) {
+                    InnerAct.act = true;
+                    localStorage.setItem("InnerAct", JSON.stringify(InnerAct));
                 }
 
-
-
             }
+
             else if($scope.start_stop=="结束"){
              event.returnValue=confirm("确认要结束本次报名吗？");
                 if(event.returnValue){
@@ -52,6 +54,17 @@ angular.module('yoDemoApp')
             }
 
         };
+        var activeAct=JSON.parse(localStorage.getItem("InnerAct"))||[];
+        var activities = JSON.parse(localStorage.getItem('activities')) || [];
+        for(var i=0;i<activities.length;i++){
+            if(activities[i].name==activeAct.name){
+                    $scope.bmMessages=activities[i].bmMessages;
+                    $scope.registerNum=activities[i].bmMessages.length;
+                }
+
+
+            }
+
 
 
 

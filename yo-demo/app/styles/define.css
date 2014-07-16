@@ -37,3 +37,17 @@
     font-size: 16px;
     margin-top: 20px;
 }
+.message_left{
+    position: relative;
+    left: 18%;
+    top: 10px;
+    font-size: 20px;
+    color: #000000;
+}
+.message_right{
+    position: absolute;
+    right: 18%;
+    top: 15px;
+    font-size: 18px;
+    color: #000000;
+}
