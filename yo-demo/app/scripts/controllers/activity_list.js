@@ -25,16 +25,25 @@ angular.module('yoDemoApp')
             $location.path('/activity_create');
 
         }
-        $scope.activity_status=function(){
-            var InnerAct=JSON.parse(localStorage.getItem("InnerAct"));
-//            for(var i=0;i<)
-//            if(){
 
-            
-            if(Activity.background_yellow(name)){
-                return "activity_status";
+        var InnerAct = JSON.parse(localStorage.getItem("InnerAct"));
+
+        for(var i=0;i<activities.length;i++ ){
+            if(InnerAct.name==activities[i].name){
+
+                activities[i].status="status";
+                $scope.activities=activities;
+
+                $scope.activity=activities[i];
+               // localStorage.setItem("activities",JSON.stringify(activities));
+
+
             }
         }
+
+
+
+
 
 
     });

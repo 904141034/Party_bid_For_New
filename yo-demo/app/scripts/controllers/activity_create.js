@@ -48,6 +48,7 @@ angular.module('yoDemoApp')
 
             activity.name=$scope.activity_name;
             activity.bmMessages=[];
+            activity.status="";
             activities.unshift(activity);
             localStorage.setItem("activities", JSON.stringify(activities));
 
