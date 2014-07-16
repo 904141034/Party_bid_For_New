@@ -25,6 +25,16 @@ angular.module('yoDemoApp')
             $location.path('/activity_create');
 
         }
+        $scope.activity_status=function(){
+            var InnerAct=JSON.parse(localStorage.getItem("InnerAct"));
+//            for(var i=0;i<)
+//            if(){
+
+            
+            if(Activity.background_yellow(name)){
+                return "activity_status";
+            }
+        }
 
 
     });
