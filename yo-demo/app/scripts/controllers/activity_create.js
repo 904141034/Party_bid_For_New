@@ -47,7 +47,7 @@ angular.module('yoDemoApp')
            if($scope.textAlert=="false"){
 
             activity.name=$scope.activity_name;
-            activity.BMmessage={};
+            activity.bmMessages=[];
             activities.unshift(activity);
             localStorage.setItem("activities", JSON.stringify(activities));
             $location.path('/activity_register');
