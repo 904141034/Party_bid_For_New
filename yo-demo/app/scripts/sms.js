@@ -14,24 +14,36 @@ var native_accessor = {
     },
 
     process_received_message: function (json_message) {
-        //新建一个对象存储报名用户信息
-        var bmMessage = {};
+
         //提取出活动
         var activities = JSON.parse(localStorage.getItem('activities')) || [];
+        var InnerAct=JSON.parse(localStorage.getItem('InnerAct'))|| [];
+        var get_name = json_message.messages[0].message.substr(2); //姓名
+        var get_phone = json_message.messages[0].phone; //电话
+        if(InnerAct.act==true) {
+            for (var j = 0; j < activities.length; j++) {
 
-        for (var j = 0; j < activities.length; j++) {
+                if (activities[j].name == InnerAct.name) {
+                    //新建一个对象存储报名用户信息
+                    var bmMessage = {};
+                    var bmMessages = activities[j].bmMessages;
+                    bmMessage.person_name = get_name;
+                    bmMessage.phone_number= get_phone;
+                    bmMessages.unshift(bmMessage);
+                    activities[j].bmMessages = bmMessages;
+                    localStorage.setItem("activities", JSON.stringify(activities));
+                }
 
-            if (activities[j].name == "1") {
-
-                var bmMessages = activities[j].bmMessages;
-                var get_name = json_message.messages[0].message.substr(2); //姓名
-                var get_phone = json_message.messages[0].phone; //电话
-                bmMessage.person_name = get_name;
-                bmMessage.phone_number = get_phone;
-                bmMessages.unshift(bmMessage);
-                activities[j].bmMessages = bmMessages;
-               localStorage.setItem("activities",JSON.stringify(activities));
             }
+        }
+        if(InnerAct.act==null){
+            var message="活动已结束！";
+            this.send_sms(get_phone,message);
+        }
+        if(InnerAct.act==false){
+            var message="活动还未开始！";
+           this.send_sms(get_phone,message);
+
 
         }
 

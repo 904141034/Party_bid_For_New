@@ -12,7 +12,7 @@ angular.module('yoDemoApp')
         //定义activities数组并获取
         var activity = {};
         var activities = JSON.parse(localStorage.getItem('activities')) || [];
-
+        var InnerAct={};
         //返回按钮
         $scope.show="false";
         if(activities.length!=0){
@@ -50,7 +50,12 @@ angular.module('yoDemoApp')
             activity.bmMessages=[];
             activities.unshift(activity);
             localStorage.setItem("activities", JSON.stringify(activities));
+
+            InnerAct.name=$scope.activity_name;
+            InnerAct.act=false;
+               localStorage.setItem("InnerAct",JSON.stringify(InnerAct));
             $location.path('/activity_register');
+
            }
 
         };
