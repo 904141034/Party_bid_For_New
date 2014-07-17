@@ -10,40 +10,42 @@ angular.module('yoDemoApp')
         ]
 
         var activities = JSON.parse(localStorage.getItem('activities')) || [];
-        $scope.activities=activities;
-        for(var i=0;i<activities.length;i++){
-            $scope.activity=activities[i];
+        $scope.activities = activities;
+        for (var i = 0; i < activities.length; i++) {
+            $scope.activity = activities[i];
         }
 
 
-        $scope.createActivity=function(){
+        $scope.createActivity = function () {
             $location.path('/activity_create');
         }
 
-        if(activities.length==0) {
+        if (activities.length == 0) {
 
             $location.path('/activity_create');
 
         }
+        $scope.activity_register = function (name) {
+            var InnerAct = JSON.parse(localStorage.getItem("InnerAct"));
+            var activities = JSON.parse(localStorage.getItem("activities"));
+            for (var i = 0; i < activities.length; i++) {
+                if (name == activities[i].name && activities[i].status=="status"){
 
-        var InnerAct = JSON.parse(localStorage.getItem("InnerAct"));
+                    $location.path('/activity_register');
+                    }
+                if(activities[i].status=="status" && name!=activities[i].name){
 
-        for(var i=0;i<activities.length;i++ ){
-            if(InnerAct.name==activities[i].name){
+                        InnerAct.name=name;
+                        InnerAct.act=false;
+                        localStorage.setItem("InnerAct",JSON.stringify(InnerAct));
+                        $location.path('/activity_register');
 
-                activities[i].status="status";
-                $scope.activities=activities;
+                    }
 
-                $scope.activity=activities[i];
-               // localStorage.setItem("activities",JSON.stringify(activities));
 
+                }
 
             }
-        }
-
-
-
-
 
 
     });

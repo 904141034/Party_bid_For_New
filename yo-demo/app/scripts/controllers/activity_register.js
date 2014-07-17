@@ -10,6 +10,7 @@ angular.module('yoDemoApp')
         ];
         $scope.return=function(){
             var InnerAct=JSON.parse(localStorage.getItem("InnerAct"))||[];
+
             if(InnerAct.act==false){
                 InnerAct.name=null;
                 InnerAct.act=null;
@@ -28,11 +29,17 @@ angular.module('yoDemoApp')
         $scope.registerNum=0;
 
         $scope.start=function(){
-
+            var activities=JSON.parse(localStorage.getItem("activities"))||[];
             if($scope.start_stop=="开始"){
 
                 $scope.start_stop="结束";
                 var InnerAct=JSON.parse(localStorage.getItem("InnerAct"))||[];
+                for(var i=0;i<activities.length;i++){
+                    if(InnerAct.name==activities[i].name){
+                        activities[i].status="status";
+                        localStorage.setItem("activities", JSON.stringify(activities));
+                    }
+                }
                 if(InnerAct.act==false) {
                     InnerAct.act = true;
                     localStorage.setItem("InnerAct", JSON.stringify(InnerAct));
@@ -44,9 +51,16 @@ angular.module('yoDemoApp')
              event.returnValue=confirm("确认要结束本次报名吗？");
                 if(event.returnValue){
                     var InnerAct=JSON.parse(localStorage.getItem("InnerAct"))||[];
+                    for(var i=0;i<activities.length;i++){
+                        if(InnerAct.name==activities[i].name){
+                            activities[i].status="";
+                            localStorage.setItem("activities", JSON.stringify(activities));
+                        }
+                    }
                     if(InnerAct.act=true){
                         InnerAct.act=false;
                         localStorage.setItem("InnerAct",JSON.stringify(InnerAct));
+
                         $scope.start_stop="开始";
                     }
                 }

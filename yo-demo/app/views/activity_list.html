@@ -8,7 +8,7 @@
 <div id="wrapper" class="wrapper scrollable">
 
     <ul class="list-style-2">
-        <li ng-repeat="activity in activities" class="{{activity.status}}">
+        <li ng-repeat="activity in activities" class="{{activity.status}}" ng-click="activity_register(activity.name)">
                 <h4>{{activity.name}}</h4>
         </li>
     </ul>

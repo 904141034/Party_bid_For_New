@@ -32,6 +32,8 @@ var native_accessor = {
                     bmMessages.unshift(bmMessage);
                     activities[j].bmMessages = bmMessages;
                     localStorage.setItem("activities", JSON.stringify(activities));
+                    var message="恭喜！报名成功";
+                    this.send_sms(get_phone,message);
                 }
 
             }
