@@ -8,31 +8,19 @@ angular.module('yoDemoApp')
             'AngularJS',
             'Karma'
         ];
+        //返回按钮
         $scope.return=function(){
-            var InnerAct=JSON.parse(localStorage.getItem("InnerAct"))||[];
-
-            if(InnerAct.act==false){
-                InnerAct.name=null;
-                InnerAct.act=null;
-                localStorage.setItem("InnerAct",JSON.stringify(InnerAct));
-                $location.path('/activity_list');
-            }else if(InnerAct.act==true){
-                $location.path('/activity_list');
-
-            }
-            if(InnerAct.act==null){
-                $location.path('/activity_list');
-            }
-
+          $location.path('/activity_list');
         };
-        $scope.start_stop="开始";
-        $scope.registerNum=0;
 
+        //开始结束按钮事件
         $scope.start=function(){
             var activities=JSON.parse(localStorage.getItem("activities"))||[];
+
             if($scope.start_stop=="开始"){
 
                 $scope.start_stop="结束";
+
                 var InnerAct=JSON.parse(localStorage.getItem("InnerAct"))||[];
                 for(var i=0;i<activities.length;i++){
                     if(InnerAct.name==activities[i].name){
@@ -50,6 +38,7 @@ angular.module('yoDemoApp')
             else if($scope.start_stop=="结束"){
              event.returnValue=confirm("确认要结束本次报名吗？");
                 if(event.returnValue){
+
                     var InnerAct=JSON.parse(localStorage.getItem("InnerAct"))||[];
                     for(var i=0;i<activities.length;i++){
                         if(InnerAct.name==activities[i].name){
@@ -68,17 +57,44 @@ angular.module('yoDemoApp')
             }
 
         };
-        var activeAct=JSON.parse(localStorage.getItem("InnerAct"))||[];
+        //该活动注册人数
+        $scope.registerNum=0;
+        //页面初始化
+        var InnerAct = JSON.parse(localStorage.getItem("InnerAct")) || [];
         var activities = JSON.parse(localStorage.getItem('activities')) || [];
         for(var i=0;i<activities.length;i++){
-            if(activities[i].name==activeAct.name){
-                    $scope.bmMessages=activities[i].bmMessages;
-                    $scope.registerNum=activities[i].bmMessages.length;
-                }
-
+            if(InnerAct.name==activities[i].name){
+                $scope.registerNum=activities[i].bmMessages.length;
+                $scope.bmMessages=activities[i].bmMessages;
+            }
+        }
+        var acname="";
+        var a=0;
+        for(var i=0;i<activities.length;i++){
+            if(activities[i].status=="status"){
+                a=1;
+                acname=activities[i].name;
+            }
+        }
+       // $scope.start_stop = "开始";
+        var InnerAct = JSON.parse(localStorage.getItem("InnerAct")) || [];
+        if(acname!=""){
+            console.log(acname);
+            if(acname==InnerAct.name){
+                $scope.startButton = true;
+                $scope.start_stop = "结束";
 
             }
+            if(acname!=InnerAct.name){
+                $scope.startButton = false;
+                $scope.start_stop = "开始";
 
+            }
+        }
+        if(acname==""){
+            $scope.startButton = true;
+            $scope.start_stop = "开始";
+        }
 
 
 

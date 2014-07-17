@@ -13,6 +13,7 @@ angular.module('yoDemoApp')
         var activity = {};
         var activities = JSON.parse(localStorage.getItem('activities')) || [];
         var InnerAct={};
+
         //返回按钮
         $scope.show="false";
         if(activities.length!=0){
@@ -55,6 +56,8 @@ angular.module('yoDemoApp')
             InnerAct.name=$scope.activity_name;
             InnerAct.act=false;
                localStorage.setItem("InnerAct",JSON.stringify(InnerAct));
+
+
             $location.path('/activity_register');
 
            }
