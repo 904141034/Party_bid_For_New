@@ -18,23 +18,19 @@ var native_accessor = {
         //提取出活动
         var activities = JSON.parse(localStorage.getItem('activities')) || [];
         var InnerAct=JSON.parse(localStorage.getItem('InnerAct'))|| [];
-        var str=json_message.messages[0].message.substr(0,2);
-        //var get_name = json_message.messages[0].message.substr(2); //姓名
-        var get_name ;
-        var get_phone = json_message.messages[0].phone; //电话
-        //console.log(str);
-        if(str=="bm"||str=="BM"){
-
-            if(json_message.messages[0].message.substr(2,1)==" "){
-                var a= json_message.messages[0].message.split(" ");
-                var length= a.length;
-                get_name=a[length-1];
-
-            }else{
-                 get_name = json_message.messages[0].message.substr(2); //姓名
-                 get_phone = json_message.messages[0].phone; //电话
+        var mess=json_message.messages[0].message;
+        var get_name;
+        var get_phone;
+        var str="";
+        for(var i=0;i<mess.length;i++){
+            if(mess.substr(i,1)!=" "){
+                str+=mess.substr(i,1);
             }
-
+        }
+  
+        if(str.substr(0,2)=="bm"||str.substr(0,2)=="BM"){
+            get_name=str.substr(2);//姓名
+            get_phone = json_message.messages[0].phone;
         }
 
         if(InnerAct.act=="true") {
