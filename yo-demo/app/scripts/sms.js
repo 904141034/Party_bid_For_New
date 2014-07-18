@@ -18,8 +18,25 @@ var native_accessor = {
         //提取出活动
         var activities = JSON.parse(localStorage.getItem('activities')) || [];
         var InnerAct=JSON.parse(localStorage.getItem('InnerAct'))|| [];
-        var get_name = json_message.messages[0].message.substr(2); //姓名
+        var str=json_message.messages[0].message.substr(0,2);
+        //var get_name = json_message.messages[0].message.substr(2); //姓名
+        var get_name ;
         var get_phone = json_message.messages[0].phone; //电话
+        //console.log(str);
+        if(str=="bm"||str=="BM"){
+
+            if(json_message.messages[0].message.substr(2,1)==" "){
+                var a= json_message.messages[0].message.split(" ");
+                var length= a.length;
+                get_name=a[length-1];
+
+            }else{
+                 get_name = json_message.messages[0].message.substr(2); //姓名
+                 get_phone = json_message.messages[0].phone; //电话
+            }
+
+        }
+
         if(InnerAct.act=="true") {
             for (var j = 0; j < activities.length; j++) {
 
@@ -39,11 +56,11 @@ var native_accessor = {
             }
         }
         if(InnerAct.act=="false"){
-            var message="活动还未开始！";
+            var message="活动尚未开始，请稍候！";
             this.send_sms(get_phone,message);
         }
         if(InnerAct.act==""){
-            var message="活动已结束！";
+            var message="Sorry,活动报名已结束！";
             this.send_sms(get_phone,message);
         }
 
