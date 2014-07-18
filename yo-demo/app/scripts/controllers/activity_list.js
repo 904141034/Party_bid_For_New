@@ -1,3 +1,4 @@
+'use strict';
 /**
  * Created by lishaodan on 14-7-9.
  */
@@ -37,7 +38,7 @@ angular.module('yoDemoApp')
                     localStorage.setItem("InnerAct", JSON.stringify(InnerAct));
                     $location.path('/activity_register');
                 }
-                if (name != activities[i].name) {
+                if (name == activities[i].name && activities[i].status != "status") {
                     InnerAct.name = name;
                     InnerAct.act = "false";
                     localStorage.setItem("InnerAct", JSON.stringify(InnerAct));
@@ -48,6 +49,7 @@ angular.module('yoDemoApp')
             }
 
         }
+        //$location.path('/activity_register');
 
 
     });
