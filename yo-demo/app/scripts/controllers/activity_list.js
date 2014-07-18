@@ -33,13 +33,13 @@ angular.module('yoDemoApp')
             for (var i = 0; i < activities.length; i++) {
                 if (name == activities[i].name && activities[i].status == "status") {
                     InnerAct.name=activities[i].name;
-                    InnerAct.act=true;
+                    InnerAct.act="true";
                     localStorage.setItem("InnerAct", JSON.stringify(InnerAct));
                     $location.path('/activity_register');
                 }
                 if (name != activities[i].name) {
                     InnerAct.name = name;
-                    InnerAct.act = false;
+                    InnerAct.act = "false";
                     localStorage.setItem("InnerAct", JSON.stringify(InnerAct));
                     $location.path('/activity_register');
 

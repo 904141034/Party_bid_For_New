@@ -28,8 +28,8 @@ angular.module('yoDemoApp')
                         localStorage.setItem("activities", JSON.stringify(activities));
                     }
                 }
-                if(InnerAct.act==false) {
-                    InnerAct.act = true;
+                if(InnerAct.act=="false") {
+                    InnerAct.act = "true";
                     localStorage.setItem("InnerAct", JSON.stringify(InnerAct));
                 }
 
@@ -46,8 +46,8 @@ angular.module('yoDemoApp')
                             localStorage.setItem("activities", JSON.stringify(activities));
                         }
                     }
-                    if(InnerAct.act=true){
-                        InnerAct.act=false;
+                    if(InnerAct.act=="true"){
+                        InnerAct.act="";
                         localStorage.setItem("InnerAct",JSON.stringify(InnerAct));
 
                         $scope.start_stop="开始";

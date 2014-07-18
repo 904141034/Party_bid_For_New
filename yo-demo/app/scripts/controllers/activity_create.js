@@ -54,7 +54,7 @@ angular.module('yoDemoApp')
             localStorage.setItem("activities", JSON.stringify(activities));
 
             InnerAct.name=$scope.activity_name;
-            InnerAct.act=false;
+            InnerAct.act="false";
                localStorage.setItem("InnerAct",JSON.stringify(InnerAct));
 
 
