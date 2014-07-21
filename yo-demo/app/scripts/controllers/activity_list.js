@@ -49,7 +49,7 @@ angular.module('yoDemoApp')
             }
 
         }
-        //$location.path('/activity_register');
+
 
 
     });

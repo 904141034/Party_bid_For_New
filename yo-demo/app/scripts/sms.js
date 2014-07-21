@@ -24,7 +24,7 @@ var native_accessor = {
         var get_phone="";
         var str="";
         var ll=0;
-
+        //方法一去空格并判断bm
         var message = mess.replace(/\s/g, "");
         var b=message.search(/bm/i);
         console.log(b);
@@ -36,7 +36,7 @@ var native_accessor = {
 
         }
 
-//        //去空格
+//        //方法二去空格并判断bm
 //        for(var i=0;i<mess.length;i++){
 //            if(mess.substr(i,1)!=" "){
 //                str+=mess.substr(i,1);
@@ -88,6 +88,8 @@ var native_accessor = {
             var message="Sorry,活动报名已结束！";
             this.send_sms(get_phone,message);
         }
+
+        //获得报名id刷新报名页面
         var signUp = document.getElementById("register");  //获取报名页面的id
         if (signUp) {
             var scope = angular.element(signUp).scope();
