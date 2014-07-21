@@ -37,19 +37,18 @@
     font-size: 16px;
     margin-top: 20px;
 }
-.message_left{
-    position: relative;
-    left: 18%;
-    top: 10px;
-    font-size: 20px;
-    color: #000000;
-}
-.message_right{
+
+.message_left {
     position: absolute;
-    right: 18%;
-    top: 15px;
-    font-size: 18px;
-    color: #000000;
+    left: 8%;
+    bottom: 0px;
+}
+
+.message_right {
+    position: absolute;
+    z-index: 10;
+    right: 8%;
+    bottom: 0px;
 }
 .status{
       background-color: #ffff00 ;

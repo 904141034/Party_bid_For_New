@@ -1,4 +1,5 @@
-<div class="header">
+<div class="header" >
+
     <div class="titlea">报名 ({{registerNum}}人)
     </div>
     <div class="header-left">
@@ -10,12 +11,12 @@
     </div>
 </div>
 <div id="wrapper" class="wrapper scrollable">
-
+<div id="register"></div>
     <ul class="list-style-2">
         <li ng-repeat="bmMessage in bmMessages">
 <h4>
-       <div class="message_left">{{bmMessage.person_name}}</div>
-        <div class="message_right" >{{bmMessage.phone_number}}</div>
+       <p><div class="message_left">{{bmMessage.person_name}}</div>
+     <div class="message_right" >{{bmMessage.phone_number}}</div></p>
 </h4>
 
 

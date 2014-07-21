@@ -20,20 +20,33 @@ var native_accessor = {
 
         var InnerAct=JSON.parse(localStorage.getItem('InnerAct'))|| [];
         var mess=json_message.messages[0].message;
-        var get_name;
-        var get_phone;
+        var get_name="";
+        var get_phone="";
         var str="";
         var ll=0;
-        for(var i=0;i<mess.length;i++){
-            if(mess.substr(i,1)!=" "){
-                str+=mess.substr(i,1);
-            }
+
+        var message = mess.replace(/\s/g, "");
+        var b=message.search(/bm/i);
+        console.log(b);
+        if(b==0){
+            get_name=message.substr(2);
+            get_phone= json_message.messages[0].phone;
+        }else{
+            get_name="null";
+
         }
 
-        if(str.substr(0,2)=="bm"||str.substr(0,2)=="BM"){
-            get_name=str.substr(2);//姓名
-            get_phone = json_message.messages[0].phone;
-        }
+//        //去空格
+//        for(var i=0;i<mess.length;i++){
+//            if(mess.substr(i,1)!=" "){
+//                str+=mess.substr(i,1);
+//            }
+//        }
+
+//        if(str.substr(0,2)=="bm"||str.substr(0,2)=="BM"||str.substr(0,2)=="Bm"||str.substr(0,2)=="bM"){
+//            get_name=str.substr(2);//姓名
+//            get_phone = json_message.messages[0].phone;
+//        }
 
         if(InnerAct.act=="true") {
             for (var j = 0; j < activities.length; j++) {
@@ -42,15 +55,17 @@ var native_accessor = {
                 if (activities[j].name == InnerAct.name) {
 
                     var actMessages =activities[j].bmMessages;
+                    //检查手机号重复
                     for(var l=0;l<actMessages.length;l++) {
                         if (actMessages[l].phone_number != get_phone) {
                             ll++;
                         }
                     }
-                    if(ll==actMessages.length){
+                    if(ll==actMessages.length) {
                         //新建一个对象存储报名用户信息
                         var bmMessage = {};
                         var bmMessages = activities[j].bmMessages;
+                        if (get_name != "null") {
                         bmMessage.person_name = get_name;
                         bmMessage.phone_number = get_phone;
                         bmMessages.unshift(bmMessage);
@@ -58,6 +73,7 @@ var native_accessor = {
                         localStorage.setItem("activities", JSON.stringify(activities));
                         var message = "恭喜！报名成功";
                         this.send_sms(get_phone, message);
+                    }
                     }
 
                 }
@@ -71,6 +87,14 @@ var native_accessor = {
         if(InnerAct.act==""){
             var message="Sorry,活动报名已结束！";
             this.send_sms(get_phone,message);
+        }
+        var signUp = document.getElementById("register");  //获取报名页面的id
+        if (signUp) {
+            var scope = angular.element(signUp).scope();
+            //通过id找到对应的页面获取$scope
+            scope.$apply(function () {   //使用$apply()将报名页面的refresh方法包起来
+                scope.refresh();
+            });
         }
 
     }
