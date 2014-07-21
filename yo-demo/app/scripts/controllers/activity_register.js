@@ -58,7 +58,6 @@ angular.module('yoDemoApp')
             }
 
         };
-
         //该活动注册人数
         $scope.registerNum = 0;
         //页面初始化

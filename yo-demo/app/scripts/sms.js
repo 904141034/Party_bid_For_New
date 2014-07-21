@@ -27,7 +27,6 @@ var native_accessor = {
         //方法一去空格并判断bm
         var message = mess.replace(/\s/g, "");
         var b=message.search(/bm/i);
-        console.log(b);
         if(b==0){
             get_name=message.substr(2);
             get_phone= json_message.messages[0].phone;
