@@ -19,6 +19,7 @@ angular.module('yoDemoApp')
                     var bidlists=activities[i].bidlists;
                     var bidno = activities[i].bidlists.length+1;
                     bidlist.bid_name = "竞价" + bidno;
+                    bidlist.status="status";
                     bidlist.bidmessages = [];
                     bidlists.unshift(bidlist);
                     activities[i].bidlists=bidlists;
@@ -36,4 +37,19 @@ angular.module('yoDemoApp')
             $location.path('/activity_list');
 
         }
+        var activities = JSON.parse(localStorage.getItem("activities")) || [];
+        var InnerAct = JSON.parse(localStorage.getItem("InnerAct")) || [];
+
+        for (var i = 0; i < activities.length; i++) {
+            if (InnerAct.name == activities[i].name) {
+                $scope.bidlists=activities[i].bidlists;
+//                for(var j=0;j<activities[i].bidlists.length;j++){
+//                    if(j<activities[i].bidlists[j].status=="status"){
+//
+//                    }
+//                }
+            }
+        }
+
+
     });

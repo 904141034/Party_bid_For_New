@@ -8,7 +8,7 @@
 
 #wrapper.wrapper.scrollable
     ul.list-style-2
-        li(ng-repeat="JJMessage in JJMessages") {{JJMessage.person_name}} {{JJMessage.phone_number}}
+        li(ng-repeat="bidlist in bidlists" class="{{bidlist.status}}") {{bidlist.bid_name}}
 
 
 footer
