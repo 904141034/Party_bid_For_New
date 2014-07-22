@@ -53,6 +53,7 @@ angular.module('yoDemoApp')
 
                         $scope.start_stop = "开始";
                     }
+                    $location.path('/bid_list');
                 }
 
             }

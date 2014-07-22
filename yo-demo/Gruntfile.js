@@ -74,6 +74,10 @@ module.exports = function (grunt) {
             bid_register: {
                 src: 'app/views/bid_register.jade',
                 dest: 'app/views/bid_register.html'
+            },
+            bid_list:{
+                src: 'app/views/bid_list.jade',
+                dest: 'app/views/bid_list.html'
             }
 
         },
