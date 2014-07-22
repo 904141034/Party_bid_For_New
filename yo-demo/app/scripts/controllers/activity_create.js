@@ -14,7 +14,7 @@ angular.module('yoDemoApp')
         var activity = {};
         var activities = JSON.parse(localStorage.getItem('activities')) || [];
         var InnerAct = {};
-
+        var bidlist={};
         var bidmessage = {};
         var bidmessages = [];
         var bidlists = [];
@@ -61,13 +61,14 @@ angular.module('yoDemoApp')
                 bidmessage.phone_number = "";
                 bidmessage.price = "";
                 bidmessages.unshift(bidmessage);
-                bidlists.bidmessages = bidmessages;
-                bidlists.bid_name = "";
+                bidlist.bidmessages = bidmessages;
+                bidlist.bid_name = "";
+                bidlists.unshift(bidlist);
                 activity.bidlists = bidlists;
 
                 activities.unshift(activity);
                 localStorage.setItem("activities", JSON.stringify(activities));
-               // console.log(activities);
+                console.log(activities[0].bidlists);
 
 
                 InnerAct.name = $scope.activity_name;

@@ -14,13 +14,15 @@ angular.module('yoDemoApp')
             var InnerAct = JSON.parse(localStorage.getItem("InnerAct")) || [];
             for(var i=0;i<activities.length;i++){
                 if(InnerAct.name==activities[i].name){
-                    var bidno=activities[i].bidlists.length;
-                    var bid_name="竞价"+(bidno+1);
+                    var bidno=activities[i].bidlists.length+1;
+                    var bid_name="竞价"+bidno;
                     activities[i].bidlists.bid_name=bid_name;
-                    localStorage.setItem("activities", JSON.stringify(activities));
-                    console.log(activities);
+
+                    console.log(activities[i].bidlists.bid_name);
                 }
             }
+            localStorage.setItem("activities", JSON.stringify(activities));
+            $location.path('/bid_register');
 
         };
         //返回按钮

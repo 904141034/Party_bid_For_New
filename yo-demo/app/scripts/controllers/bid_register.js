@@ -9,4 +9,13 @@ angular.module('yoDemoApp')
             'AngularJS',
             'Karma'
         ];
+        var activities = JSON.parse(localStorage.getItem("activities")) || [];
+        var InnerAct = JSON.parse(localStorage.getItem("InnerAct")) || [];
+        for(var i=0;i<activities.length;i++) {
+            if (InnerAct.name == activities[i].name) {
+                var bidNo=activities[i].bidlists.length;
+                $scope.bid_name="竞价"+bidNo;
+                console.log(activities[i]);
+            }
+        }
     });
