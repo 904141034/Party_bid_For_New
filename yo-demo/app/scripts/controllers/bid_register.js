@@ -15,7 +15,7 @@ angular.module('yoDemoApp')
             if (InnerAct.name == activities[i].name) {
                 var bidNo=activities[i].bidlists.length;
                 $scope.bid_name="竞价"+bidNo;
-                console.log(activities[i]);
+               // console.log(activities[i]);
             }
         }
     });

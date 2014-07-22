@@ -9,24 +9,30 @@ angular.module('yoDemoApp')
             'AngularJS',
             'Karma'
         ];
-        $scope.start=function(){
+        $scope.start = function () {
             var activities = JSON.parse(localStorage.getItem("activities")) || [];
             var InnerAct = JSON.parse(localStorage.getItem("InnerAct")) || [];
-            for(var i=0;i<activities.length;i++){
-                if(InnerAct.name==activities[i].name){
-                    var bidno=activities[i].bidlists.length+1;
-                    var bid_name="竞价"+bidno;
-                    activities[i].bidlists.bid_name=bid_name;
 
-                    console.log(activities[i].bidlists.bid_name);
+            for (var i = 0; i < activities.length; i++) {
+                if (InnerAct.name == activities[i].name) {
+                    var bidlist = {};
+                    var bidlists=activities[i].bidlists;
+                    var bidno = activities[i].bidlists.length+1;
+                    bidlist.bid_name = "竞价" + bidno;
+                    bidlist.bidmessages = [];
+                    bidlists.unshift(bidlist);
+                    activities[i].bidlists=bidlists;
+                    localStorage.setItem("activities", JSON.stringify(activities));
+
                 }
             }
-            localStorage.setItem("activities", JSON.stringify(activities));
+
+            //console.log(activities);
             $location.path('/bid_register');
 
         };
         //返回按钮
-        $scope.return1= function () {
+        $scope.return = function () {
             $location.path('/activity_list');
 
         }

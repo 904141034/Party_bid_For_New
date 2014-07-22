@@ -14,10 +14,10 @@ angular.module('yoDemoApp')
         var activity = {};
         var activities = JSON.parse(localStorage.getItem('activities')) || [];
         var InnerAct = {};
-        var bidlist={};
-        var bidmessage = {};
-        var bidmessages = [];
-        var bidlists = [];
+//        var bidlist={};
+//        var bidmessage = {};
+//        var bidmessages = [];
+//        var bidlists = [];
 
 
         //返回按钮
@@ -57,18 +57,18 @@ angular.module('yoDemoApp')
                 activity.bmMessages = [];
                 activity.status = "";
 
-                bidmessage.person_name = "";
-                bidmessage.phone_number = "";
-                bidmessage.price = "";
-                bidmessages.unshift(bidmessage);
-                bidlist.bidmessages = bidmessages;
-                bidlist.bid_name = "";
-                bidlists.unshift(bidlist);
-                activity.bidlists = bidlists;
+//                bidmessage.person_name = "";
+//                bidmessage.phone_number = "";
+//                bidmessage.price = "";
+//                bidmessages.unshift(bidmessage);
+//                bidlist.bidmessages = bidmessages;
+//                bidlist.bid_name = "";
+//                bidlists.unshift(bidlist);
+                activity.bidlists =[];
 
                 activities.unshift(activity);
                 localStorage.setItem("activities", JSON.stringify(activities));
-                console.log(activities[0].bidlists);
+
 
 
                 InnerAct.name = $scope.activity_name;
