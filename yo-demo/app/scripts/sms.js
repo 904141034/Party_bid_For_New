@@ -89,7 +89,7 @@ var native_accessor = {
         }
 
         //获得报名id刷新报名页面
-        var signUp = document.getElementById("register");  //获取报名页面的id
+        var signUp = document.getElementById("activity_register");  //获取报名页面的id
         if (signUp) {
             var scope = angular.element(signUp).scope();
             //通过id找到对应的页面获取$scope

@@ -1,3 +1,21 @@
 #bid_list
 .header
-.titlea 报名
+    .titlea 竞价
+    .header-right
+        button.btn.btn-primary.btn-lg.btn-block.btn-4 开始
+    .header-left
+         button.btn.btn-primary.btn-lg.btn-block.btn-4 返回
+
+#wrapper.wrapper.scrollable
+    ul.list-style-2
+        li(ng-repeat="JJMessage in JJMessages") {{JJMessage.person_name}} {{JJMessage.phone_number}}
+
+
+footer
+    ul.footer-nav.footer-nav-2tabs
+        li
+            a(href='#activity_register') 报名
+        li.active
+            a 竞价
+
+
