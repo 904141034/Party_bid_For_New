@@ -11,10 +11,20 @@ angular.module('yoDemoApp')
         ];
         // 活动列表赋值
         var activities = JSON.parse(localStorage.getItem('activities')) || [];
+        var InnerAct = JSON.parse(localStorage.getItem("InnerAct"));
         $scope.activities = activities;
         for (var i = 0; i < activities.length; i++) {
             $scope.activity = activities[i];
+
         }
+        for (var i = 0; i < activities.length; i++) {
+            if(InnerAct.name==activities[i].name||InnerAct.bid_act=="true"){
+                activities[i].status="status";
+                $scope.activities = activities;
+            }
+
+        }
+
 
         //创建活动
         $scope.createActivity = function () {

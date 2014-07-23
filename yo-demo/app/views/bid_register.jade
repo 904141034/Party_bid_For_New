@@ -8,6 +8,6 @@
 
 #wrapper.wrapper.scrollable
     ul.list-style-2
-        li(ng-repeat="bidMessage in bidMessages" )
+        li(ng-repeat="bidMessage in bidMessages track by $index" )
             .two {{bidMessage.person_name}}
             .two {{bidMessage.phone_number}}

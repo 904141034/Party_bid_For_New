@@ -8,7 +8,7 @@
 
 #wrapper.wrapper.scrollable
     ul.list-style-2
-        li(ng-repeat="bidlist in bidlists" class="{{bidlist.status}}") {{bidlist.bid_name}}
+        li(ng-repeat="bidlist in bidlists" class="{{bidlist.status}}"  ng-click="bid_register(bidlist.bid_name)") {{bidlist.bid_name}}
 
 
 footer
