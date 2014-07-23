@@ -5,3 +5,9 @@
         button.btn.btn-primary.btn-lg.btn-block.btn-4(ng-click='stop()') 结束
     .header-left
         button.btn.btn-primary.btn-lg.btn-block.btn-4(ng-click='return()') 返回
+
+#wrapper.wrapper.scrollable
+    ul.list-style-2
+        li(ng-repeat="bidMessage in bidMessages" )
+            .two {{bidMessage.person_name}}
+            .two {{bidMessage.phone_number}}

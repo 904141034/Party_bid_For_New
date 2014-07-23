@@ -20,7 +20,7 @@ angular.module('yoDemoApp')
                     var bidno = activities[i].bidlists.length+1;
                     bidlist.bid_name = "竞价" + bidno;
                     bidlist.status="status";
-                    bidlist.bidmessages = [];
+                    bidlist.bidMessages = [];
                     bidlists.unshift(bidlist);
                     activities[i].bidlists=bidlists;
                     localStorage.setItem("activities", JSON.stringify(activities));
