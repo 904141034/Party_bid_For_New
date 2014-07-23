@@ -54,6 +54,9 @@ angular.module('yoDemoApp')
 
             }
         }
+        $scope.bid_register=function(bid_name){
+            $location.path('/bid_register');
+        }
 
 
     });

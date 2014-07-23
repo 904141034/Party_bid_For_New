@@ -11,6 +11,11 @@ angular.module('yoDemoApp')
         ];
         var activities = JSON.parse(localStorage.getItem("activities")) || [];
         var InnerAct = JSON.parse(localStorage.getItem("InnerAct")) || [];
+        if(InnerAct.bid_act=="true"){
+            $scope.stop_button='结束';
+        }else if(InnerAct.bid_act=="false"){
+            $scope.stop_button='开始';
+        }
         for (var i = 0; i < activities.length; i++) {
             if (InnerAct.name == activities[i].name) {
                 var bidNo = activities[i].bidlists.length;
@@ -21,37 +26,52 @@ angular.module('yoDemoApp')
                        $scope.bidMessageNO=activities[i].bidlists[j].bidMessages.length;
                    }
                }
-
-
             }
         }
-
 
         $scope.return = function () {
             $location.path('/bid_list');
         }
         $scope.stop = function () {
-            event.returnValue = confirm("确认要结束本轮竞价吗？");
-            if (event.returnValue) {
+            if ( $scope.stop_button=='结束') {
+
+
+                event.returnValue = confirm("确认要结束本轮竞价吗？");
+                if (event.returnValue) {
+
+                    for (var i = 0; i < activities.length; i++) {
+                        if (InnerAct.name == activities[i].name) {
+                            var bidlists = activities[i].bidlists;
+                            for (var j = 0; j < bidlists.length; j++) {
+                                if (activities[i].bidlists[j].bid_name == $scope.bid_name && $scope.bid_name == InnerAct.bid_name) {
+                                    activities[i].bidlists[j].status = "";
+                                    InnerAct.bid_act = "false";
+                                    localStorage.setItem("activities", JSON.stringify(activities));
+                                    localStorage.setItem("InnerAct", JSON.stringify(InnerAct));
+                                }
+                            }
+                        }
+                    }
+                    $scope.stop_button = '开始';
+                }
+
+            }
+            else if($scope.stop_button == '开始'){
 
                 for (var i = 0; i < activities.length; i++) {
                     if (InnerAct.name == activities[i].name) {
                         var bidlists = activities[i].bidlists;
                         for (var j = 0; j < bidlists.length; j++) {
                             if (activities[i].bidlists[j].bid_name == $scope.bid_name && $scope.bid_name == InnerAct.bid_name) {
-                                activities[i].bidlists[j].status = "";
-                                InnerAct.bid_act = "false";
+                                activities[i].bidlists[j].status = "status";
+                                InnerAct.bid_act = "true";
                                 localStorage.setItem("activities", JSON.stringify(activities));
                                 localStorage.setItem("InnerAct", JSON.stringify(InnerAct));
-
                             }
-
-
                         }
-
-
                     }
                 }
+                $scope.stop_button='结束'
             }
         }
 
