@@ -18,8 +18,12 @@ angular.module('yoDemoApp')
 
         }
         for (var i = 0; i < activities.length; i++) {
-            if(InnerAct.name==activities[i].name||InnerAct.bid_act=="true"){
+            if(InnerAct.name==activities[i].name && InnerAct.bid_act=="true"){
                 activities[i].status="status";
+                $scope.activities = activities;
+            }
+            else if(InnerAct.name==activities[i].name && InnerAct.act!="true" && InnerAct.bid_act=="false" ){
+                activities[i].status="";
                 $scope.activities = activities;
             }
 

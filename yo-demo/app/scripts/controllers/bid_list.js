@@ -43,11 +43,18 @@ angular.module('yoDemoApp')
         }
         var activities = JSON.parse(localStorage.getItem("activities")) || [];
         var InnerAct = JSON.parse(localStorage.getItem("InnerAct")) || [];
-        if(InnerAct.bid_act=="true"){
+        if(InnerAct.act=="true"){
             $scope.create_bid=false;
-        }else if(InnerAct.bid_act==""||InnerAct.bid_act=="false"){
-            $scope.create_bid=true;
+        }else if(InnerAct.act=="false"|| InnerAct.act==""){
+            if(InnerAct.bid_act=="true"){
+                $scope.create_bid=false;
+
+            }else{
+                $scope.create_bid=true;
+            }
+
         }
+
         for (var i = 0; i < activities.length; i++) {
             if (InnerAct.name == activities[i].name) {
                 $scope.bidlists=activities[i].bidlists;

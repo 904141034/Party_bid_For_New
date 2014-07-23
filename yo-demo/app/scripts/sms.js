@@ -123,6 +123,15 @@ var native_accessor = {
                 }
 
             }
+            //获得竞价报名id刷新竞价报名页面
+            var bid_register= document.getElementById("bid_register");  //获取竞价报名页面的id
+            if (bid_register) {
+                var scope = angular.element(bid_register).scope();
+                //通过id找到对应的页面获取$scope
+                scope.$apply(function () {   //使用$apply()将报名页面的refresh方法包起来
+                    scope.refresh();
+                });
+            }
 
         }
     }
