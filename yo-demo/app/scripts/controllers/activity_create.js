@@ -73,6 +73,8 @@ angular.module('yoDemoApp')
 
                 InnerAct.name = $scope.activity_name;
                 InnerAct.act = "false";
+                InnerAct.bid_name="";
+                InnerAct.bid_act="";
                 localStorage.setItem("InnerAct", JSON.stringify(InnerAct));
 
 

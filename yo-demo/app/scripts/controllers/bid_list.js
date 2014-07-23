@@ -25,10 +25,14 @@ angular.module('yoDemoApp')
                     activities[i].bidlists=bidlists;
                     localStorage.setItem("activities", JSON.stringify(activities));
 
+                    InnerAct.bid_name="竞价" + bidno;
+                    InnerAct.bid_act="true";
+                    localStorage.setItem("InnerAct", JSON.stringify(InnerAct));
+
                 }
             }
 
-            //console.log(activities);
+
             $location.path('/bid_register');
 
         };
@@ -39,15 +43,15 @@ angular.module('yoDemoApp')
         }
         var activities = JSON.parse(localStorage.getItem("activities")) || [];
         var InnerAct = JSON.parse(localStorage.getItem("InnerAct")) || [];
-
+        if(InnerAct.bid_act=="true"){
+            $scope.create_bid=false;
+        }else if(InnerAct.bid_act==""||InnerAct.bid_act=="false"){
+            $scope.create_bid=true;
+        }
         for (var i = 0; i < activities.length; i++) {
             if (InnerAct.name == activities[i].name) {
                 $scope.bidlists=activities[i].bidlists;
-//                for(var j=0;j<activities[i].bidlists.length;j++){
-//                    if(j<activities[i].bidlists[j].status=="status"){
-//
-//                    }
-//                }
+
             }
         }
 

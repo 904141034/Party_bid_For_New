@@ -27,11 +27,14 @@ angular.module('yoDemoApp')
                 if (InnerAct.name == activities[i].name ) {
                     var bidlists=activities[i].bidlists;
                     for(var j=0;j<bidlists.length;j++){
-                        if(activities[i].bidlists[j].bid_name==$scope.bid_name){
+                        if(activities[i].bidlists[j].bid_name==$scope.bid_name && $scope.bid_name==InnerAct.bid_name){
                             activities[i].bidlists[j].status="";
+                            InnerAct.bid_act="false";
                             localStorage.setItem("activities", JSON.stringify(activities));
+                            localStorage.setItem("InnerAct", JSON.stringify(InnerAct));
 
                         }
+
 
                     }
 

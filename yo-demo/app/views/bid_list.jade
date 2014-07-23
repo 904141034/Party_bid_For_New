@@ -2,7 +2,7 @@
 .header
     .titlea 竞价
     .header-right
-        button.btn.btn-primary.btn-lg.btn-block.btn-4( ng-click="start()") 开始
+        button.btn.btn-primary.btn-lg.btn-block.btn-4( ng-click="start()" ng-disabled="{{!create_bid}}") 开始
     .header-left
          button.btn.btn-primary.btn-lg.btn-block.btn-4(ng-click="return()") 返回
 
