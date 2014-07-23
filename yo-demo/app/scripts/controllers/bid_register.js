@@ -18,6 +18,7 @@ angular.module('yoDemoApp')
                for(var j=0;j<bidNo;j++){
                    if(InnerAct.bid_name==activities[i].bidlists[j].bid_name){
                        $scope.bidMessages=activities[i].bidlists[j].bidMessages;
+                       $scope.bidMessageNO=activities[i].bidlists[j].bidMessages.length;
                    }
                }
 
