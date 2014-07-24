@@ -2,8 +2,8 @@
 //notify_message_received({"messages":[{"create_date":"Tue Jan 15 15:28:44 格林尼治标准时间+0800 2013","message":"jj308","phone":"18733171780"}]})
 var native_accessor = {
     send_sms: function (phone, message) {
-        native_access.send_sms({"receivers":[{"name":'name', "phone":phone}]}, {"message_content":message});
-        //console.log(phone, message);
+        //native_access.send_sms({"receivers":[{"name":'name', "phone":phone}]}, {"message_content":message});
+        console.log(phone, message);
     },
 
     receive_message: function (json_message) {
@@ -90,14 +90,12 @@ var native_accessor = {
         var getbid_name = "";
         var getbid_price = "";
         var getbid_phone = "";
-        var isregistered=false;
+
         //去空格并判断jj
         var j = message.search(/jj/i);
         if (j == 0) {
-//            var No = message.search(/\d{1,}/i);
-//            getbid_name = message.substr(2, No - 2);
-//            getbid_price = message.substr(No);
-//            getbid_phone = json_message.messages[0].phone;
+            var isregistered="";
+            var isr=0;
             getbid_price = message.substr(2);
             getbid_phone = json_message.messages[0].phone;
             for (var i = 0; i < activities.length; i++) {
@@ -105,17 +103,21 @@ var native_accessor = {
                     var bmMessages=activities[i].bmMessages;
                     for(var j=0;j<bmMessages.length;j++){
                         if(bmMessages[j].phone_number==getbid_phone){
-                            isregistered=true;
+
+                            isregistered="true";
                             getbid_name=bmMessages[j].person_name;
                         }else{
-                            isregistered=false;
+                            isr++;
                         }
+                    }
+                    if(isr==bmMessages.length){
+                        isregistered="false";
                     }
                 }
             }
 
 
-            if (InnerAct.bid_act == "true" && isregistered==true) {
+            if (InnerAct.bid_act == "true" && isregistered=="true") {
                 for (var i = 0; i < activities.length; i++) {
                     if (InnerAct.name == activities[i].name) {
                         var bidlists = activities[i].bidlists;
@@ -156,7 +158,7 @@ var native_accessor = {
                 var message = "对不起，竞价尚未开始，或者竞价已结束！";
                 this.send_sms(getbid_phone, message);
             }
-            if(isregistered==false){
+            if(isregistered=="false"){
                 var message = "对不起，您没有报名此次活动！";
                 this.send_sms(getbid_phone, message);
             }
