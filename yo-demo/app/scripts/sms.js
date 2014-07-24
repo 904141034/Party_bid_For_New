@@ -153,7 +153,7 @@ var native_accessor = {
 
             }
             if(InnerAct.bid_act != "true"){
-                var message = "对不起，活动尚未开始，或者活动已结束！";
+                var message = "对不起，竞价尚未开始，或者竞价已结束！";
                 this.send_sms(getbid_phone, message);
             }
             if(isregistered==false){
