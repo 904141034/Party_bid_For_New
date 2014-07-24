@@ -23,6 +23,7 @@ var native_accessor = {
         var get_name = "";
         var get_phone = "";
         var ll = 0;
+        var jj = 0;
         //去空格并判断bm
         var message = mess.replace(/\s/g, "");
         var b = message.search(/bm/i);
@@ -96,35 +97,47 @@ var native_accessor = {
             getbid_name = message.substr(2, No - 2);
             getbid_price = message.substr(No);
             getbid_phone = json_message.messages[0].phone;
-        }
-        if (j == 0) {
+//        }
+//        if (j == 0) {
 
 
             if (InnerAct.bid_act == "true") {
                 for (var i = 0; i < activities.length; i++) {
                     if (InnerAct.name == activities[i].name) {
                         var bidlists = activities[i].bidlists;
+
                         for (var j = 0; j < bidlists.length; j++) {
                             if (InnerAct.bid_name == bidlists[j].bid_name) {
-                                var bidMessage = {};
-                                var bidMessages = bidlists[j].bidMessages;
-                                bidMessage.person_name = getbid_name;
-                                bidMessage.bid_price = getbid_price;
-                                bidMessage.phone_number = getbid_phone;
-                                bidMessages.unshift(bidMessage);
-                                activities[i].bidlists[j].bidMessages = bidMessages;
-                                localStorage.setItem("activities", JSON.stringify(activities));
-                                var message = "恭喜！您已出价成功";
-                                this.send_sms(getbid_phone, message);
 
+
+                                //检查手机号重复
+                                for (var l = 0; l < bidlists[j].bidMessages.length; l++) {
+                                    if (bidlists[j].bidMessages[l].phone_number != getbid_phone) {
+                                        jj++;
+                                    }
+                                }
+                                if (jj == bidlists[j].bidMessages.length) {
+
+                                    var bidMessage = {};
+                                    var bidMessages = bidlists[j].bidMessages;
+                                    bidMessage.person_name = getbid_name;
+                                    bidMessage.bid_price = getbid_price;
+                                    bidMessage.phone_number = getbid_phone;
+                                    bidMessages.unshift(bidMessage);
+                                    activities[i].bidlists[j].bidMessages = bidMessages;
+                                    localStorage.setItem("activities", JSON.stringify(activities));
+                                    var message = "恭喜！您已出价成功";
+                                    this.send_sms(getbid_phone, message);
+                                }
                             }
                         }
                     }
                 }
 
             }
+
             //获得竞价报名id刷新竞价报名页面
-            var bid_register= document.getElementById("bid_register");  //获取竞价报名页面的id
+            var bid_register = document.getElementById("bid_register");  //获取竞价报名页面的id
             if (bid_register) {
                 var scope = angular.element(bid_register).scope();
                 //通过id找到对应的页面获取$scope

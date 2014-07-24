@@ -95,7 +95,28 @@ angular.module('yoDemoApp')
             }
         }
         if (acname == "") {
-            $scope.startButton = true;
+
+            for(var i=0;i<activities.length;i++){
+                if(activities[i].name==InnerAct.name){
+                    var bidlists=activities[i].bidlists;
+                    var ll=0;
+                    for(var j=0;j<bidlists.length;j++){
+                        if(bidlists[j].status!="status"){
+                            ll++;
+                        }
+                    }
+                    if(ll!=bidlists.length){
+                        $scope.startButton = false;
+                    }else if(ll==bidlists.length){
+                        $scope.startButton = true;
+                    }
+//console.log(ll);
+                }
+            }
+
+
+
+
             $scope.start_stop = "开始";
         }
          //   refersh方法刷新页面

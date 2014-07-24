@@ -46,11 +46,21 @@ angular.module('yoDemoApp')
         if(InnerAct.act=="true"){
             $scope.create_bid=false;
         }else if(InnerAct.act=="false"|| InnerAct.act==""){
-            if(InnerAct.bid_act=="true"){
-                $scope.create_bid=false;
-
-            }else{
-                $scope.create_bid=true;
+            var m=0;
+            for (var i = 0; i < activities.length; i++) {
+                if (InnerAct.name == activities[i].name) {
+                    var bidlists=activities[i].bidlists;
+                    for(var j=0;j<bidlists.length;j++){
+                        if(bidlists[j].status!="status"){
+                            m++
+                        }
+                    }
+                    if(m==bidlists.length){
+                        $scope.create_bid=true;
+                    }else if(m!=bidlists.length){
+                        $scope.create_bid=false;
+                    }
+                }
             }
 
         }
@@ -62,6 +72,28 @@ angular.module('yoDemoApp')
             }
         }
         $scope.bid_register=function(bid_name){
+
+            var activities = JSON.parse(localStorage.getItem("activities")) || [];
+            var InnerAct = JSON.parse(localStorage.getItem("InnerAct")) || [];
+            for (var i = 0; i < activities.length; i++) {
+                if (InnerAct.name == activities[i].name) {
+                    var bidlists=activities[i].bidlists;
+                    for(var j=0;j<bidlists.length;j++){
+                        if(bid_name==bidlists[j].bid_name){
+                            InnerAct.bid_name=bid_name;
+
+                            if(bidlists[j].status=="status"){
+                                InnerAct.bid_act="true";
+                            }else if(bidlists[j].status==""){
+                                InnerAct.bid_act="false";
+                            }
+
+                        }
+                    }
+                    localStorage.setItem("InnerAct", JSON.stringify(InnerAct));
+                }
+
+                }
             $location.path('/bid_register');
         }
 
