@@ -2,8 +2,8 @@
 //notify_message_received({"messages":[{"create_date":"Tue Jan 15 15:28:44 格林尼治标准时间+0800 2013","message":"jj308","phone":"18733171780"}]})
 var native_accessor = {
     send_sms: function (phone, message) {
-        //native_access.send_sms({"receivers":[{"name":'name', "phone":phone}]}, {"message_content":message});
-        console.log(phone, message);
+        native_access.send_sms({"receivers":[{"name":'name', "phone":phone}]}, {"message_content":message});
+        //console.log(phone, message);
     },
 
     receive_message: function (json_message) {
@@ -90,18 +90,32 @@ var native_accessor = {
         var getbid_name = "";
         var getbid_price = "";
         var getbid_phone = "";
+        var isregistered=false;
         //去空格并判断jj
         var j = message.search(/jj/i);
         if (j == 0) {
-            var No = message.search(/\d{1,}/i);
-            getbid_name = message.substr(2, No - 2);
-            getbid_price = message.substr(No);
+//            var No = message.search(/\d{1,}/i);
+//            getbid_name = message.substr(2, No - 2);
+//            getbid_price = message.substr(No);
+//            getbid_phone = json_message.messages[0].phone;
+            getbid_price = message.substr(2);
             getbid_phone = json_message.messages[0].phone;
-//        }
-//        if (j == 0) {
+            for (var i = 0; i < activities.length; i++) {
+                if (InnerAct.name == activities[i].name) {
+                    var bmMessages=activities[i].bmMessages;
+                    for(var j=0;j<bmMessages.length;j++){
+                        if(bmMessages[j].phone_number==getbid_phone){
+                            isregistered=true;
+                            getbid_name=bmMessages[j].person_name;
+                        }else{
+                            isregistered=false;
+                        }
+                    }
+                }
+            }
 
 
-            if (InnerAct.bid_act == "true") {
+            if (InnerAct.bid_act == "true" && isregistered==true) {
                 for (var i = 0; i < activities.length; i++) {
                     if (InnerAct.name == activities[i].name) {
                         var bidlists = activities[i].bidlists;
@@ -128,12 +142,23 @@ var native_accessor = {
                                     localStorage.setItem("activities", JSON.stringify(activities));
                                     var message = "恭喜！您已出价成功";
                                     this.send_sms(getbid_phone, message);
+                                }else if(jj != bidlists[j].bidMessages.length){
+                                    var message = "你已成功出价，请勿重复出价！";
+                                    this.send_sms(getbid_phone, message);
                                 }
                             }
                         }
                     }
                 }
 
+            }
+            if(InnerAct.bid_act != "true"){
+                var message = "对不起，活动尚未开始，或者活动已结束！";
+                this.send_sms(getbid_phone, message);
+            }
+            if(isregistered==false){
+                var message = "对不起，您没有报名此次活动！";
+                this.send_sms(getbid_phone, message);
             }
 
             //获得竞价报名id刷新竞价报名页面
