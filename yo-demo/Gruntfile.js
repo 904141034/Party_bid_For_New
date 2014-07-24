@@ -78,6 +78,14 @@ module.exports = function (grunt) {
             bid_list:{
                 src: 'app/views/bid_list.jade',
                 dest: 'app/views/bid_list.html'
+            },
+            bid_results:{
+                src: 'app/views/bid_results.jade',
+                dest: 'app/views/bid_results.html'
+            },
+            price_statistics:{
+                src: 'app/views/price_statistics.jade',
+                dest: 'app/views/price_statistics.html'
             }
 
         },

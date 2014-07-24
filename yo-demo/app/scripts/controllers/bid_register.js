@@ -61,7 +61,7 @@ angular.module('yoDemoApp')
                         }
                     }
 
-
+                    $location.path('/bid_results');
                 }
                 else {
                     $scope.startbid = true;
@@ -76,7 +76,6 @@ angular.module('yoDemoApp')
             for (var i = 0; i < activities.length; i++) {
                 if (InnerAct.name == activities[i].name) {
                     var bidNo = activities[i].bidlists.length;
-//                    $scope.bid_name = "竞价" + bidNo;
 
                     for (var j = 0; j < bidNo; j++) {
                         if (InnerAct.bid_name == activities[i].bidlists[j].bid_name) {
