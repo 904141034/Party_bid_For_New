@@ -14,6 +14,7 @@ angular.module('yoDemoApp')
         }
         var InnerAct =JSON.parse(localStorage.getItem("InnerAct")) ||[];
         var activities = JSON.parse(localStorage.getItem("activities")) || [];
+
         $scope.bid_name=InnerAct.bid_name;
         for(var i=0;i<activities.length;i++){
             if(InnerAct.name==activities[i].name){
@@ -27,8 +28,35 @@ angular.module('yoDemoApp')
                         });
                         $scope.bidMessageNO=sot_bybidprice.length;
                         $scope.bidMessages=sot_bybidprice;
-                        console.log(sot_bybidprice);
-                        console.log( $scope.bidMessages);
+
+                        var count_pricegroup = _.countBy(bidMessages, function (bidMessages) {
+                            return bidMessages.bid_price;
+
+                        })
+                        var pricegroup = _.map(count_pricegroup, function (value, key) {
+                            return {"price": key, "count": value}
+                        })
+                        var bid_pricegroup=pricegroup;
+                        localStorage.setItem('bid_pricegroup',JSON.stringify(bid_pricegroup));
+                         var l=0;
+                        for(var m=0;m<bid_pricegroup.length;m++){
+                            if(bid_pricegroup[m].count==1){
+                                var bid_success = _.find(sot_bybidprice, function(bid_success){
+                                    return bid_success.bid_price == bid_pricegroup[m].price; });
+                                localStorage.setItem('bid_success',JSON.stringify(bid_success));
+                            }else{
+                                l++;
+
+                                }
+                        }
+                        if(l==bid_pricegroup.length){
+                            var bid_success = JSON.parse(localStorage.getItem("bid_success")) || [];
+                            bid_success.person_name="";
+                            bid_success.bid_price="";
+                            bid_success.phone_number="";
+                            localStorage.setItem('bid_success',JSON.stringify(bid_success));
+                        }
+
                     }
                 }
             }
