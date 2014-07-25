@@ -13,12 +13,16 @@ angular.module('yoDemoApp')
         $('#bid_resultsModal').modal("show");
         $scope.showsuccess="false";
         var bid_success = JSON.parse(localStorage.getItem("bid_success")) || {};
-        console.log(bid_success);
-        $scope.bid_successperson = bid_success.person_name;
-        $scope.bid_successphone = bid_success.phone_number.substr(0, 3);
-        $scope.bid_successprice = bid_success.bid_price;
-        $scope.bid_successphoneNumber= bid_success.phone_number;
 
+        var bid_successphone = bid_success.phone_number.substr(0, 3);
+
+        if (bid_success.person_name != "") {
+            $scope.bid_success = bid_success.person_name + " " + "￥" + bid_success.bid_price + "  " + bid_success.phone_number;
+            $scope.bid_successMessage=bid_success.person_name + " " + "￥" +
+                bid_success.bid_price + "  " +bid_successphone+"XXXXXXXX"+" "+"竞价成功！"
+        }else if(bid_success.person_name == ""){
+            $scope.bid_success="竞价失败！"
+        }
         $timeout(function(){
         $('#bid_resultsModal').modal('hide');
         $scope.showsuccess="true";

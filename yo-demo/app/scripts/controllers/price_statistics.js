@@ -9,18 +9,24 @@ angular.module('yoDemoApp')
             'AngularJS',
             'Karma'
         ];
-        var bid_pricegroup=JSON.parse(localStorage.getItem("bid_pricegroup"));
-        var InnerAct=JSON.parse(localStorage.getItem("InnerAct"));
-        var bid_success=JSON.parse(localStorage.getItem("bid_success"));
-        var No=0;
-        for(var i=0;i<bid_pricegroup.length;i++){
-            No+=bid_pricegroup[i].count;
+        var bid_pricegroup = JSON.parse(localStorage.getItem("bid_pricegroup"));
+        var InnerAct = JSON.parse(localStorage.getItem("InnerAct"));
+        var bid_success = JSON.parse(localStorage.getItem("bid_success"));
+        var No = 0;
+        for (var i = 0; i < bid_pricegroup.length; i++) {
+            No += bid_pricegroup[i].count;
         }
-        $scope.bidMessageNO=No;
-        $scope.bid_name=InnerAct.bid_name;
-        $scope.bid_pricegroup=bid_pricegroup;
+        $scope.bidMessageNO = No;
+        $scope.bid_name = InnerAct.bid_name;
+        $scope.bid_pricegroup = bid_pricegroup;
+        if (bid_success.person_name != "") {
+            $scope.bid_success = bid_success.person_name + " " + "￥" + bid_success.bid_price + "  " + bid_success.phone_number;
 
-        $scope.bid_successperson=bid_success.person_name;
-        $scope.bid_successprice=bid_success.bid_price;
-        $scope.bid_successphoneNumber=bid_success.phone_number;
+        }else if(bid_success.person_name == ""){
+            $scope.bid_success="竞价失败！"
+        }
+        $scope.return=function(){
+            $location.path('/bid_list');
+        }
+
     });
