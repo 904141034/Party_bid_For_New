@@ -1,18 +1,17 @@
 #price_statistics
 .header
-    .titlea 竞价
+    .titlea {{bid_name}} ({{bidMessageNO}}人)
     .header-left
         button.btn.btn-primary.btn-lg.btn-block.btn-4(ng-click="return()") 返回
 
 #wrapper.wrapper.scrollable
     ul.list-style-2
-        li(ng-repeat="bidMessage in bidMessages")
-            .header-left.two
-                .two {{bidMessage.person_name}}
-                .two {{bidMessage.phone_number}}
+        li(ng-repeat="bidgroup in bid_pricegroup track by $index")
+            .header-left.count
+                .count ￥{{bidgroup.price}}
 
-            .header-right.two-right
-                .p.two-right ￥{{bidMessage.bid_price}}
+
+            .header-right.count-right {{bidgroup.count}}人
 
 
 footer

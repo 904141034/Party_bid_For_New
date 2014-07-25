@@ -9,4 +9,13 @@ angular.module('yoDemoApp')
             'AngularJS',
             'Karma'
         ];
+        var bid_pricegroup=JSON.parse(localStorage.getItem("bid_pricegroup"));
+        var InnerAct=JSON.parse(localStorage.getItem("InnerAct"));
+        var No=0;
+        for(var i=0;i<bid_pricegroup.length;i++){
+            No+=bid_pricegroup[i].count;
+        }
+        $scope.bidMessageNO=No;
+        $scope.bid_name=InnerAct.bid_name;
+        $scope.bid_pricegroup=bid_pricegroup;
     });

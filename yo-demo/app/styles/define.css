@@ -54,15 +54,29 @@
       background-color: #ffff00 ;
 }
 .two{
-    margin-left: 8%;
+    margin-left: 10%;
     font-size: 20px;
     text-decoration-color: #000000;
 
 }
 .two-right{
-    margin-right: 8%;
+    margin-right: 10%;
     font-size: 20px;
     text-decoration-color: #000000;
     margin-top: 5px;
+
+}
+.count{
+    margin-left: 10%;
+    font-size: 20px;
+    text-decoration-color: #000000;
+    margin-top: 5px;
+
+}
+.count-right{
+    margin-right: 10%;
+    font-size: 20px;
+    text-decoration-color: #000000;
+    margin-top: 8.5px;
 
 }
