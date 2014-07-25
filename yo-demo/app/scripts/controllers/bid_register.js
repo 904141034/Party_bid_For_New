@@ -91,6 +91,7 @@ angular.module('yoDemoApp')
                                             var bid_success = _.find(sot_bybidprice, function(bid_success){
                                                 return bid_success.bid_price == bid_pricegroup[m].price; });
                                             localStorage.setItem('bid_success',JSON.stringify(bid_success));
+                                            break;
                                         }else{
                                             l++;
 
