@@ -1,0 +1,13 @@
+#bid_register
+.header
+    .titlea {{bid_name}} ({{bidMessageNO}}人)
+    .header-right
+        button.btn.btn-primary.btn-lg.btn-block.btn-4(ng-click='stop()' ng-disabled='!startbid') 结束
+    .header-left
+        button.btn.btn-primary.btn-lg.btn-block.btn-4(ng-click='return()') 返回
+
+#wrapper.wrapper.scrollable
+    ul.list-style-2
+        li(ng-repeat="bidMessage in bidMessages track by $index" )
+            .two {{bidMessage.person_name}}
+            .two {{bidMessage.phone_number}}

@@ -1,0 +1,23 @@
+<div class="header">
+    <div class="titlea">活动列表</div>
+    <div class="header-right">
+        <button class=" btn btn-primary btn-lg btn-block btn-4" ng-click="createActivity()">创建活动</button>
+    </div>
+</div>
+
+<div id="wrapper" class="wrapper scrollable">
+
+    <ul class="list-style-2">
+        <li ng-repeat="activity in activities" class="{{activity.status}}" ng-click="activity_register(activity.name)">
+                <h4>{{activity.name}}</h4>
+        </li>
+    </ul>
+
+</div>
+
+
+
+
+
+
+

@@ -1,0 +1,87 @@
+.titlea{
+    font-size: 26px;
+}
+.createActivity{
+    margin-top: 10%;
+    margin-left: 20%;
+    width:60%;
+}
+.activityName{
+    width :100%;
+}
+.createinput{
+
+    width: 100%;
+    margin-top: 5%;
+    height:80px;
+
+}
+.createbutton{
+    margin-top:10% ;
+    width:50%;
+    margin-left: 25%;
+}
+.inputheight{
+    position:relative;
+    height: 50px;
+    width: 100%;
+    font-size: 26px;
+    tab-size: 16px;
+    margin-top: 10px;
+    border-bottom-color:#888 ;
+    border-top-color: #000000;
+}
+.textAlert{
+    color: #F00;
+    text-align: center;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.message_left {
+    position: absolute;
+    left: 8%;
+    bottom: 0px;
+}
+
+.message_right {
+    position: absolute;
+    z-index: 10;
+    right: 8%;
+    bottom: 0px;
+}
+.status{
+      background-color: #ffff00 ;
+}
+.two{
+    margin-left: 10%;
+    font-size: 20px;
+    text-decoration-color: #000000;
+
+}
+.two-right{
+    margin-right: 10%;
+    font-size: 20px;
+    text-decoration-color: #000000;
+    margin-top: 5px;
+
+}
+.count{
+    margin-left: 10%;
+    font-size: 20px;
+    text-decoration-color: #000000;
+    margin-top: 5px;
+
+}
+.count-right{
+    margin-right: 10%;
+    font-size: 20px;
+    text-decoration-color: #000000;
+    margin-top: 8.5px;
+
+}
+.mmcenter{
+    margin-left:35%;
+    margin-top: 12px;
+}
+

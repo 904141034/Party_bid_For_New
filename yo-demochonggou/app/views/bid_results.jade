@@ -1,0 +1,38 @@
+#bid_results
+.header
+    .titlea {{bid_name}} ({{bidMessageNO}}人)
+    .header-left
+        button.btn.btn-primary.btn-lg.btn-block.btn-4(ng-click="return()") 返回
+
+#bid_resultsModal.modal.fade
+    .modal-dialog
+        .modal-content
+            .modal-body
+                a.close(data-dismiss="modal" ) &times
+                br
+                h5.text-center {{bid_successMessage}}
+                br
+
+
+
+#wrapper.wrapper.scrollable
+    ul.list-style-2
+        li(ng-repeat="bidMessage in bidMessages track by $index")
+            .header-left.two
+                .two {{bidMessage.person_name}}
+                .two {{bidMessage.phone_number}}
+
+            .header-right.two-right
+                .p.two-right ￥{{bidMessage.bid_price}}
+
+
+footer
+    ul.list-style-2(ng-show="showsuccess")
+        li.h4 竞价结果 ：{{bid_success}}
+
+
+    ul.footer-nav.footer-nav-2tabs
+        li.active
+            a 竞价结果
+        li
+            a(href='#price_statistics') 价格统计

@@ -1,0 +1,33 @@
+<div class="header" >
+
+    <div class="titlea">报名 ({{registerNum}}人)
+    </div>
+    <div class="header-left">
+        <button  class="btn btn-primary btn-lg btn-block btn-4" ng-click="return()">返回</button>
+    </div>
+    <div class="header-right">
+        <button class="btn btn-primary btn-lg btn-block btn-4" ng-click="start()" ng-disabled="!startButton">{{start_stop}}</button>
+
+    </div>
+</div>
+<div id="wrapper" class="wrapper scrollable">
+<div id="activity_register"></div>
+    <ul class="list-style-2">
+        <li ng-repeat="bmMessage in bmMessages">
+<h4>
+       <p><div class="message_left">{{bmMessage.person_name}}</div>
+     <div class="message_right" >{{bmMessage.phone_number}}</div></p>
+</h4>
+
+
+        </li>
+    </ul>
+
+</div>
+<footer>
+    <ul class="footer-nav footer-nav-2tabs">
+        <li class="active"><a>报名<br></a></li>
+        <li><a href="#/bid_list">竞价<br></a></li>
+    </ul>
+</footer>
+
