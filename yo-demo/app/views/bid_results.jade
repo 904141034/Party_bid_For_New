@@ -4,6 +4,20 @@
     .header-left
         button.btn.btn-primary.btn-lg.btn-block.btn-4(ng-click="return()") 返回
 
+#bid_resultsModal.modal.fade.center
+    .modal-dialog
+        .modal-content
+            .modal-body
+                a.close(data-dismiss="modal" ) &times
+                br
+                br
+                br
+                h3.text-center {{bid_successperson}} {{bid_successphone}}XXXXXXXX ￥{{bid_successprice}} 竞价成功！
+                br
+                br
+                br
+
+
 #wrapper.wrapper.scrollable
     ul.list-style-2
         li(ng-repeat="bidMessage in bidMessages track by $index")
@@ -16,6 +30,9 @@
 
 
 footer
+    ul.list-style-2(ng-show="showsuccess")
+        li.two.text-center 竞价结果 ：{{bid_successperson}} ￥{{bid_successprice}}    {{bid_successphoneNumber}}
+
     ul.footer-nav.footer-nav-2tabs
         li.active
             a 竞价结果

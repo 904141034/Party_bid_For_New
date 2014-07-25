@@ -3,12 +3,27 @@
  * Created by lishaodan on 14-7-24.
  */
 angular.module('yoDemoApp')
-    .controller('bid_resultsCtrl', function ($scope,$location) {
+
+    .controller('bid_resultsCtrl', function ($scope,$location,$timeout) {
         $scope.awesomeThings = [
             'HTML5 Boilerplate',
             'AngularJS',
             'Karma'
         ];
+        $('#bid_resultsModal').modal("show");
+        $scope.showsuccess="false";
+        var bid_success = JSON.parse(localStorage.getItem("bid_success")) || {};
+        console.log(bid_success);
+        $scope.bid_successperson = bid_success.person_name;
+        $scope.bid_successphone = bid_success.phone_number.substr(0, 3);
+        $scope.bid_successprice = bid_success.bid_price;
+        $scope.bid_successphoneNumber= bid_success.phone_number;
+
+        $timeout(function(){
+        $('#bid_resultsModal').modal('hide');
+        $scope.showsuccess="true";
+        }, 3000);
+
         $scope.return=function(){
             $location.path('/bid_list');
         }
