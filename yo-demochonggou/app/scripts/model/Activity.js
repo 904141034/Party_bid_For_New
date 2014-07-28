@@ -13,24 +13,20 @@ Activity.prototype.add_saveItem=function()
     activities.unshift(this);
     Activity.setActivities(activities);
 }
-Activity.getActivities=function()
-{
+Activity.getActivities=function(){
     return JSON.parse(localStorage.getItem("activities"))||[];
 };
-Activity.setActivities=function(activities)
-{
+Activity.setActivities=function(activities){
      localStorage.setItem('activities',JSON.stringify(activities)) ;
 };
 Activity.isRename=function(activity_name){
 
    var activities= Activity.judgeActivityName(activity_name);
-    console.log(activities);
    var result=!(activities==[]||typeof(activities)=="undefined");
    return String(result);
 
 };
-Activity.judgeActivityName=function(activity_name)
-{
+Activity.judgeActivityName=function(activity_name){
     var activities=Activity.getActivities();
     if(activities.length!=0){
         var activity=_.find(activities,function(activity){
@@ -60,7 +56,32 @@ Activity.activity_register=function(name){
         return activity.name==name && activity.status=="status";
     });
     typeof(activity)=="undefined"? innerAct.act="false":innerAct.act="true";
-}
+};
+Activity.Start_StopButton=function($scope,$location){
+   $scope.start_stop =="开始" ? Activity.start($scope):Activity.stop($scope,$location);
+};
+Activity.start=function($scope){
+    $scope.start_stop ="结束";
+    var activities=Activity.getActivities();
+    var innerAct=JSON.parse(localStorage.getItem("innerAct"));
+    _.findWhere(activities,{name:innerAct.name}).status = "status";
+    innerAct.act = "true";
+    Activity.setActivities(activities);
+    InnerAct.setInnerAct(innerAct);
+};
+Activity.stop=function($scope,$location){
+    event.returnValue = confirm("确认要结束本次报名吗？");
+    if (event.returnValue) {
+        $scope.start_stop = "开始";
+        var activities = Activity.getActivities();
+        var innerAct = JSON.parse(localStorage.getItem("innerAct"));
+        innerAct.act = "false";
+        _.findWhere(activities, {name: innerAct.name}).status = "";
+        Activity.setActivities(activities);
+        InnerAct.setInnerAct(innerAct);
+        $location.path('/bid_list');
+    }
+};
 
 
 

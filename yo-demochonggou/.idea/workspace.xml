@@ -23,11 +23,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="activity_register.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="activity_register.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/scripts/controllers/activity_register.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="3.2204473" vertical-offset="54" max-vertical-offset="2556">
-              <caret line="115" column="0" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="108" max-vertical-offset="2592">
+              <caret line="17" column="36" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="InnerAct.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/scripts/model/InnerAct.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="486">
+              <caret line="16" column="20" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Activity.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/scripts/model/Activity.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.5111821" vertical-offset="958" max-vertical-offset="1692">
+              <caret line="71" column="41" selection-start-line="71" selection-start-column="41" selection-end-line="71" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -84,14 +104,14 @@
         <option value="$PROJECT_DIR$/app/scripts/underscore-min.js" />
         <option value="$PROJECT_DIR$/app/scripts/model/InnerAct.js" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/activity_create.js" />
-        <option value="$PROJECT_DIR$/app/scripts/model/Activity.js" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/activity_list.js" />
-        <option value="$PROJECT_DIR$/app/scripts/controllers/activity_register.js" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/bid_list.js" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/bid_register.js" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/bid_results.js" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/price_statistics.js" />
         <option value="$PROJECT_DIR$/app/scripts/sms.js" />
+        <option value="$PROJECT_DIR$/app/scripts/controllers/activity_register.js" />
+        <option value="$PROJECT_DIR$/app/scripts/model/Activity.js" />
       </list>
     </option>
   </component>
@@ -730,22 +750,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/model/InnerAct.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="486">
-          <caret line="15" column="1" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/model/Activity.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="486" max-vertical-offset="1314">
-          <caret line="49" column="53" selection-start-line="49" selection-start-column="53" selection-end-line="49" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/controllers/activity_list.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.34504792" vertical-offset="0" max-vertical-offset="626">
@@ -791,15 +795,31 @@
         <state vertical-scroll-proportion="0.29363784" vertical-offset="54" max-vertical-offset="3384">
           <caret line="13" column="6" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/controllers/activity_register.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="3.2204473" vertical-offset="54" max-vertical-offset="2556">
-          <caret line="115" column="0" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="108" max-vertical-offset="2592">
+          <caret line="17" column="36" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/model/InnerAct.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="486">
+          <caret line="16" column="20" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/model/Activity.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5111821" vertical-offset="958" max-vertical-offset="1692">
+          <caret line="71" column="41" selection-start-line="71" selection-start-column="41" selection-end-line="71" selection-end-column="41" />
           <folding />
         </state>
       </provider>

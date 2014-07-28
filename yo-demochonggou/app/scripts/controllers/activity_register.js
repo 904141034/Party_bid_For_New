@@ -16,47 +16,49 @@ angular.module('yoDemoApp')
 
         //开始结束按钮事件
         $scope.start = function () {
-            var activities = JSON.parse(localStorage.getItem("activities")) || [];
+            Activity.Start_StopButton($scope,$location);
 
-            if ($scope.start_stop == "开始") {
-
-                $scope.start_stop = "结束";
-
-                var innerAct = JSON.parse(localStorage.getItem("innerAct")) || [];
-                for (var i = 0; i < activities.length; i++) {
-                    if (innerAct.name == activities[i].name) {
-                        activities[i].status = "status";
-                        localStorage.setItem("activities", JSON.stringify(activities));
-                    }
-                }
-                if (innerAct.act == "false") {
-                    innerAct.act = "true";
-                    localStorage.setItem("innerAct", JSON.stringify(innerAct));
-                }
-
-            }
-
-            else if ($scope.start_stop == "结束") {
-                event.returnValue = confirm("确认要结束本次报名吗？");
-                if (event.returnValue) {
-
-                    var innerAct = JSON.parse(localStorage.getItem("innerAct")) || [];
-                    for (var i = 0; i < activities.length; i++) {
-                        if (innerAct.name == activities[i].name) {
-                            activities[i].status = "";
-                            localStorage.setItem("activities", JSON.stringify(activities));
-                        }
-                    }
-                    if (innerAct.act == "true") {
-                        innerAct.act = "";
-                        localStorage.setItem("innerAct", JSON.stringify(innerAct));
-
-                        $scope.start_stop = "开始";
-                    }
-                    $location.path('/bid_list');
-                }
-
-            }
+//            var activities = JSON.parse(localStorage.getItem("activities")) || [];
+//
+//            if ($scope.start_stop == "开始") {
+//
+//                $scope.start_stop = "结束";
+//
+//                var innerAct = JSON.parse(localStorage.getItem("innerAct")) || [];
+//                for (var i = 0; i < activities.length; i++) {
+//                    if (innerAct.name == activities[i].name) {
+//                        activities[i].status = "status";
+//                        localStorage.setItem("activities", JSON.stringify(activities));
+//                    }
+//                }
+//                if (innerAct.act == "false") {
+//                    innerAct.act = "true";
+//                    localStorage.setItem("innerAct", JSON.stringify(innerAct));
+//                }
+//
+//            }
+//
+//            else if ($scope.start_stop == "结束") {
+//                event.returnValue = confirm("确认要结束本次报名吗？");
+//                if (event.returnValue) {
+//
+//                    var innerAct = JSON.parse(localStorage.getItem("innerAct")) || [];
+//                    for (var i = 0; i < activities.length; i++) {
+//                        if (innerAct.name == activities[i].name) {
+//                            activities[i].status = "";
+//                            localStorage.setItem("activities", JSON.stringify(activities));
+//                        }
+//                    }
+//                    if (innerAct.act == "true") {
+//                        innerAct.act = "";
+//                        localStorage.setItem("innerAct", JSON.stringify(innerAct));
+//
+//                        $scope.start_stop = "开始";
+//                    }
+//                    $location.path('/bid_list');
+//                }
+//
+//            }
 
         };
         //该活动注册人数
