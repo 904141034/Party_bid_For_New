@@ -9,25 +9,19 @@ angular.module('yoDemoApp')
             'AngularJS',
             'Karma'
         ];
-        // 活动列表赋值
-        var activities = JSON.parse(localStorage.getItem('activities')) || [];
-        var InnerAct = JSON.parse(localStorage.getItem("InnerAct"));
-        $scope.activities = activities;
+
+        Activity.list_activities($scope);
 //        for (var i = 0; i < activities.length; i++) {
-//            $scope.activity = activities[i];
+//            if(InnerAct.name==activities[i].name && InnerAct.bid_act=="true"){
+//                activities[i].status="status";
+//                $scope.activities = activities;
+//            }
+//            else if(InnerAct.name==activities[i].name && InnerAct.act!="true" && InnerAct.bid_act=="false" ){
+//                activities[i].status="";
+//                $scope.activities = activities;
+//            }
 //
 //        }
-        for (var i = 0; i < activities.length; i++) {
-            if(InnerAct.name==activities[i].name && InnerAct.bid_act=="true"){
-                activities[i].status="status";
-                $scope.activities = activities;
-            }
-            else if(InnerAct.name==activities[i].name && InnerAct.act!="true" && InnerAct.bid_act=="false" ){
-                activities[i].status="";
-                $scope.activities = activities;
-            }
-
-        }
 
 
         //创建活动
@@ -35,10 +29,8 @@ angular.module('yoDemoApp')
             $location.path('/activity_create');
         }
         //活动为空直接跳转创建活动
-        if (activities.length == 0) {
-
-            $location.path('/activity_create');
-
+        if (Activity.getLength=="false") {
+           $location.path('/activity_create');
         }
         //点击单个活动事件
         $scope.activity_register = function (name) {

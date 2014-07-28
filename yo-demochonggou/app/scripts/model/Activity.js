@@ -10,14 +10,12 @@ function Activity(activity_name){
 Activity.prototype.add_saveItem=function()
 {
     var activities=Activity.getActivities();
-
     activities.unshift(this);
     Activity.setActivities(activities);
 }
 Activity.getActivities=function()
 {
-    var activities=JSON.parse(localStorage.getItem("activities"))||[];
-    return activities;
+    return JSON.parse(localStorage.getItem("activities"))||[];
 };
 Activity.setActivities=function(activities)
 {
@@ -40,15 +38,23 @@ Activity.judgeActivityName=function(activity_name)
 
         return activity;
     }
-
     return activities;
-
 };
 Activity.getLength=function(){
     var activities=Activity.getActivities();
-    var result=(activities.length!=0);
-    return String(result);
+    return String((activities.length!=0));
 };
+Activity.list_activities=function($scope){
+    var activities=Activity.getActivities();
+    $scope.activities=activities;
+};
+Activity.showYellow=function(){
+    var activities=Activity.getActivities();
+    var innerAct=JSON.parse(localStorage.getItem("InnerAct"));
+    _.findWhere(activities,{name:innerAct.name} && innerAct.bid_act=="true");
+    _.findWhere(activities,{name:innerAct.name} && innerAct.act!="true" && innerAct.bid_act=="false");
+    $scope.activities = activities;
+}
 
 
 
