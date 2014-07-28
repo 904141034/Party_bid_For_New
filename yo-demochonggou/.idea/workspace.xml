@@ -46,8 +46,8 @@
       <file leaf-file-name="Activity.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/scripts/model/Activity.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.37380192" vertical-offset="108" max-vertical-offset="1044">
-              <caret line="19" column="2" selection-start-line="19" selection-start-column="2" selection-end-line="19" selection-end-column="2" />
+            <state vertical-scroll-proportion="0.74760383" vertical-offset="0" max-vertical-offset="1080">
+              <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -67,7 +67,17 @@
         <entry file="file://$PROJECT_DIR$/app/scripts/controllers/activity_create.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="576">
-              <caret line="18" column="46" selection-start-line="18" selection-start-column="46" selection-end-line="18" selection-end-column="46" />
+              <caret line="18" column="34" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="activity_list.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/scripts/controllers/activity_list.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="54" max-vertical-offset="1332">
+              <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -110,7 +120,6 @@
         <option value="$PROJECT_DIR$/app/views/activity_register.html" />
         <option value="$PROJECT_DIR$/app/views/bid_list.html" />
         <option value="$PROJECT_DIR$/app/styles/css/android.css" />
-        <option value="$PROJECT_DIR$/app/scripts/controllers/activity_list.js" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/bid_list.js" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/activity_register.js" />
         <option value="$PROJECT_DIR$/app/views/bid_register.html" />
@@ -137,10 +146,11 @@
         <option value="$PROJECT_DIR$/app/styles/css/bootstrap.css" />
         <option value="$PROJECT_DIR$/app/scripts/model/Activities.js" />
         <option value="$PROJECT_DIR$/app/views/activity_create.html" />
-        <option value="$PROJECT_DIR$/app/scripts/model/Activity.js" />
         <option value="$PROJECT_DIR$/app/index.html" />
         <option value="$PROJECT_DIR$/app/scripts/model/InnerAct.js" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/activity_create.js" />
+        <option value="$PROJECT_DIR$/app/scripts/controllers/activity_list.js" />
+        <option value="$PROJECT_DIR$/app/scripts/model/Activity.js" />
       </list>
     </option>
   </component>
@@ -785,14 +795,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/activity_list.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.31629393" vertical-offset="0" max-vertical-offset="1332">
-          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/activity_create.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.552901" vertical-offset="0" max-vertical-offset="612">
@@ -825,18 +827,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/activity_list.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="54" max-vertical-offset="1332">
+          <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/controllers/activity_create.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="576">
-          <caret line="18" column="46" selection-start-line="18" selection-start-column="46" selection-end-line="18" selection-end-column="46" />
+          <caret line="18" column="34" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/model/Activity.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.37380192" vertical-offset="108" max-vertical-offset="1044">
-          <caret line="19" column="2" selection-start-line="19" selection-start-column="2" selection-end-line="19" selection-end-column="2" />
+        <state vertical-scroll-proportion="0.74760383" vertical-offset="0" max-vertical-offset="1080">
+          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
           <folding />
         </state>
       </provider>

@@ -10,6 +10,7 @@ function Activity(activity_name){
 Activity.prototype.add_saveItem=function()
 {
     var activities=Activity.getActivities();
+
     activities.unshift(this);
     Activity.setActivities(activities);
 }
@@ -25,7 +26,7 @@ Activity.setActivities=function(activities)
 Activity.isRename=function(activity_name){
 
    var activities= Activity.judgeActivityName(activity_name);
-   var result=!(activities.length==0);
+   var result=!(activities==[]||typeof(activities)=="undefined");
    return String(result);
 
 };
@@ -36,6 +37,7 @@ Activity.judgeActivityName=function(activity_name)
         var activity=_.find(activities,function(activity){
             return activity.name==activity_name;
         });
+
         return activity;
     }
 
