@@ -10,13 +10,13 @@
     <h4 class="activityName">活动名称</h4>
 
     <div class="createinput">
-        <input class="inputheight " ng-model="activity_name" type="search" ng-change="IsUseStr()">
+        <input class="inputheight " ng-model="activity_name" type="search" >
     </div>
     <div class="textAlert">
         <p ng-show="textAlert">*活动名称重复</p>
     </div>
     <div class="createbutton">
-        <button class=" btn btn-primary btn-lg btn-block" ng-click="create_Activity()" ng-disabled="!activity_name">创建
+        <button class=" btn btn-primary btn-lg btn-block" ng-click="create_Activity(activity_name)" ng-disabled="!activity_name">创建
         </button>
     </div>
 </div>
