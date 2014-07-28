@@ -17,7 +17,7 @@ var native_accessor = {
 
         //提取出活动
         var activities = JSON.parse(localStorage.getItem('activities')) || [];
-        var InnerAct = JSON.parse(localStorage.getItem('InnerAct')) || [];
+        var innerAct = JSON.parse(localStorage.getItem('innerAct')) || [];
 
         var mess = json_message.messages[0].message;
         var get_name = "";
@@ -35,11 +35,11 @@ var native_accessor = {
 
         }
         if (b == 0) {
-            if (InnerAct.act == "true") {
+            if (innerAct.act == "true") {
                 for (var j = 0; j < activities.length; j++) {
 
 
-                    if (activities[j].name == InnerAct.name) {
+                    if (activities[j].name == innerAct.name) {
 
                         var actMessages = activities[j].bmMessages;
                         //检查手机号重复
@@ -67,11 +67,11 @@ var native_accessor = {
 
                 }
             }
-            if (InnerAct.act == "false") {
+            if (innerAct.act == "false") {
                 var message = "活动尚未开始，请稍候！";
                 this.send_sms(get_phone, message);
             }
-            if (InnerAct.act == "") {
+            if (innerAct.act == "") {
                 var message = "Sorry,活动报名已结束！";
                 this.send_sms(get_phone, message);
             }
@@ -99,7 +99,7 @@ var native_accessor = {
             getbid_price = message.substr(2);
             getbid_phone = json_message.messages[0].phone;
             for (var i = 0; i < activities.length; i++) {
-                if (InnerAct.name == activities[i].name) {
+                if (innerAct.name == activities[i].name) {
                     var bmMessages=activities[i].bmMessages;
                     for(var j=0;j<bmMessages.length;j++){
                         if(bmMessages[j].phone_number==getbid_phone){
@@ -117,13 +117,13 @@ var native_accessor = {
             }
 
 
-            if (InnerAct.bid_act == "true" && isregistered=="true") {
+            if (innerAct.bid_act == "true" && isregistered=="true") {
                 for (var i = 0; i < activities.length; i++) {
-                    if (InnerAct.name == activities[i].name) {
+                    if (innerAct.name == activities[i].name) {
                         var bidlists = activities[i].bidlists;
 
                         for (var j = 0; j < bidlists.length; j++) {
-                            if (InnerAct.bid_name == bidlists[j].bid_name) {
+                            if (innerAct.bid_name == bidlists[j].bid_name) {
 
 
                                 //检查手机号重复
@@ -154,7 +154,7 @@ var native_accessor = {
                 }
 
             }
-            if(InnerAct.bid_act != "true"){
+            if(innerAct.bid_act != "true"){
                 var message = "对不起，竞价尚未开始，或者竞价已结束！";
                 this.send_sms(getbid_phone, message);
             }

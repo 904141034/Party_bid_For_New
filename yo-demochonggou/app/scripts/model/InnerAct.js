@@ -14,14 +14,8 @@ InnerAct.prototype.add_saveItem=function()
    InnerAct.setInnerAct(innerAct);
 
 }
-//InnerAct.getInnerAct=function()
-//{
-//    var innerAct= JSON.parse(localStorage.getItem('innerAct'));
-//    console.log(innerAct);
-//    return innerAct;
-//};
 InnerAct.setInnerAct=function(innerAct)
 {
-    localStorage.setItem('InnerAct',JSON.stringify(innerAct)) ;
+    localStorage.setItem('innerAct',JSON.stringify(innerAct)) ;
 };
 

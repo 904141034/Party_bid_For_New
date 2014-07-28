@@ -16,6 +16,7 @@ angular.module('yoDemoApp')
         $scope.create_Activity = function (activity_name) {
             //重复警告
             $scope.textAlert = Activity.isRename(activity_name);
+            console.log($scope.textAlert);
             if ($scope.textAlert == "false") {
                 var activity = new Activity(activity_name);
                 activity.add_saveItem();

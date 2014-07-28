@@ -22,16 +22,16 @@ angular.module('yoDemoApp')
 
                 $scope.start_stop = "结束";
 
-                var InnerAct = JSON.parse(localStorage.getItem("InnerAct")) || [];
+                var innerAct = JSON.parse(localStorage.getItem("innerAct")) || [];
                 for (var i = 0; i < activities.length; i++) {
-                    if (InnerAct.name == activities[i].name) {
+                    if (innerAct.name == activities[i].name) {
                         activities[i].status = "status";
                         localStorage.setItem("activities", JSON.stringify(activities));
                     }
                 }
-                if (InnerAct.act == "false") {
-                    InnerAct.act = "true";
-                    localStorage.setItem("InnerAct", JSON.stringify(InnerAct));
+                if (innerAct.act == "false") {
+                    innerAct.act = "true";
+                    localStorage.setItem("innerAct", JSON.stringify(innerAct));
                 }
 
             }
@@ -40,16 +40,16 @@ angular.module('yoDemoApp')
                 event.returnValue = confirm("确认要结束本次报名吗？");
                 if (event.returnValue) {
 
-                    var InnerAct = JSON.parse(localStorage.getItem("InnerAct")) || [];
+                    var innerAct = JSON.parse(localStorage.getItem("innerAct")) || [];
                     for (var i = 0; i < activities.length; i++) {
-                        if (InnerAct.name == activities[i].name) {
+                        if (innerAct.name == activities[i].name) {
                             activities[i].status = "";
                             localStorage.setItem("activities", JSON.stringify(activities));
                         }
                     }
-                    if (InnerAct.act == "true") {
-                        InnerAct.act = "";
-                        localStorage.setItem("InnerAct", JSON.stringify(InnerAct));
+                    if (innerAct.act == "true") {
+                        innerAct.act = "";
+                        localStorage.setItem("innerAct", JSON.stringify(innerAct));
 
                         $scope.start_stop = "开始";
                     }
@@ -62,10 +62,10 @@ angular.module('yoDemoApp')
         //该活动注册人数
         $scope.registerNum = 0;
         //页面初始化
-        var InnerAct = JSON.parse(localStorage.getItem("InnerAct")) || [];
+        var innerAct = JSON.parse(localStorage.getItem("innerAct")) || [];
         var activities = JSON.parse(localStorage.getItem('activities')) || [];
         for (var i = 0; i < activities.length; i++) {
-            if (InnerAct.name == activities[i].name) {
+            if (innerAct.name == activities[i].name) {
                 $scope.registerNum = activities[i].bmMessages.length;
                 $scope.bmMessages = activities[i].bmMessages;
             }
@@ -80,15 +80,15 @@ angular.module('yoDemoApp')
             }
         }
 
-        var InnerAct = JSON.parse(localStorage.getItem("InnerAct")) || [];
+        var innerAct = JSON.parse(localStorage.getItem("innerAct")) || [];
         if (acname != "") {
             //console.log(acname);
-            if (acname == InnerAct.name) {
+            if (acname == innerAct.name) {
                 $scope.startButton = true;
                 $scope.start_stop = "结束";
 
             }
-            if (acname != InnerAct.name) {
+            if (acname != innerAct.name) {
                 $scope.startButton = false;
                 $scope.start_stop = "开始";
 
@@ -97,7 +97,7 @@ angular.module('yoDemoApp')
         if (acname == "") {
 
             for(var i=0;i<activities.length;i++){
-                if(activities[i].name==InnerAct.name){
+                if(activities[i].name==innerAct.name){
                     var bidlists=activities[i].bidlists;
                     var ll=0;
                     for(var j=0;j<bidlists.length;j++){
@@ -121,10 +121,10 @@ angular.module('yoDemoApp')
         }
          //   refersh方法刷新页面
         $scope.refresh = function () {
-            var InnerAct = JSON.parse(localStorage.getItem("InnerAct")) || [];
+            var innerAct = JSON.parse(localStorage.getItem("innerAct")) || [];
             var activities = JSON.parse(localStorage.getItem('activities')) || [];
             for (var i = 0; i < activities.length; i++) {
-                if (InnerAct.name == activities[i].name) {
+                if (innerAct.name == activities[i].name) {
                     $scope.registerNum = activities[i].bmMessages.length;
                     $scope.bmMessages = activities[i].bmMessages;
                 }

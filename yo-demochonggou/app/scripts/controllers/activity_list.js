@@ -11,19 +11,6 @@ angular.module('yoDemoApp')
         ];
 
         Activity.list_activities($scope);
-//        for (var i = 0; i < activities.length; i++) {
-//            if(InnerAct.name==activities[i].name && InnerAct.bid_act=="true"){
-//                activities[i].status="status";
-//                $scope.activities = activities;
-//            }
-//            else if(InnerAct.name==activities[i].name && InnerAct.act!="true" && InnerAct.bid_act=="false" ){
-//                activities[i].status="";
-//                $scope.activities = activities;
-//            }
-//
-//        }
-
-
         //创建活动
         $scope.createActivity = function () {
             $location.path('/activity_create');
@@ -35,27 +22,8 @@ angular.module('yoDemoApp')
         //点击单个活动事件
         $scope.activity_register = function (name) {
             //活动名传值
-            var InnerAct = JSON.parse(localStorage.getItem("InnerAct"));
-            var activities = JSON.parse(localStorage.getItem("activities"));
-            for (var i = 0; i < activities.length; i++) {
-                if (name == activities[i].name && activities[i].status == "status") {
-                    InnerAct.name=activities[i].name;
-                    InnerAct.act="true";
-                    localStorage.setItem("InnerAct", JSON.stringify(InnerAct));
-                    $location.path('/activity_register');
-                }
-                if (name == activities[i].name && activities[i].status != "status") {
-                    InnerAct.name = name;
-                    InnerAct.act = "false";
-                    localStorage.setItem("InnerAct", JSON.stringify(InnerAct));
-                    $location.path('/activity_register');
-
-                }
-
-            }
-
+            Activity.activity_register(name);
+            $location.path('/activity_register');
         }
-
-
 
     });

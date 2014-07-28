@@ -24,6 +24,7 @@ Activity.setActivities=function(activities)
 Activity.isRename=function(activity_name){
 
    var activities= Activity.judgeActivityName(activity_name);
+    console.log(activities);
    var result=!(activities==[]||typeof(activities)=="undefined");
    return String(result);
 
@@ -35,10 +36,9 @@ Activity.judgeActivityName=function(activity_name)
         var activity=_.find(activities,function(activity){
             return activity.name==activity_name;
         });
-
         return activity;
     }
-    return activities;
+    return activities.toString();
 };
 Activity.getLength=function(){
     var activities=Activity.getActivities();
@@ -46,15 +46,22 @@ Activity.getLength=function(){
 };
 Activity.list_activities=function($scope){
     var activities=Activity.getActivities();
+    var innerAct=JSON.parse(localStorage.getItem("innerAct"));
+    if(innerAct.bid_act=="true"||innerAct.act=="true"){
+        _.findWhere(activities,{name:innerAct.name}).status="status";
+    }
     $scope.activities=activities;
 };
-Activity.showYellow=function(){
+Activity.activity_register=function(name){
     var activities=Activity.getActivities();
-    var innerAct=JSON.parse(localStorage.getItem("InnerAct"));
-    _.findWhere(activities,{name:innerAct.name} && innerAct.bid_act=="true");
-    _.findWhere(activities,{name:innerAct.name} && innerAct.act!="true" && innerAct.bid_act=="false");
-    $scope.activities = activities;
+    var innerAct=JSON.parse(localStorage.getItem("innerAct"));
+    innerAct.name=name;
+    var activity= _.find(activities,function(activity){
+        return activity.name==name && activity.status=="status";
+    });
+    typeof(activity)=="undefined"? innerAct.act="false":innerAct.act="true";
 }
+
 
 
 

@@ -11,10 +11,10 @@ angular.module('yoDemoApp')
         ];
         $scope.start = function () {
             var activities = JSON.parse(localStorage.getItem("activities")) || [];
-            var InnerAct = JSON.parse(localStorage.getItem("InnerAct")) || [];
+            var innerAct = JSON.parse(localStorage.getItem("innerAct")) || [];
 
             for (var i = 0; i < activities.length; i++) {
-                if (InnerAct.name == activities[i].name) {
+                if (innerAct.name == activities[i].name) {
                     var bidlist = {};
                     var bidlists=activities[i].bidlists;
                     var bidno = activities[i].bidlists.length+1;
@@ -25,9 +25,9 @@ angular.module('yoDemoApp')
                     activities[i].bidlists=bidlists;
                     localStorage.setItem("activities", JSON.stringify(activities));
 
-                    InnerAct.bid_name="竞价" + bidno;
-                    InnerAct.bid_act="true";
-                    localStorage.setItem("InnerAct", JSON.stringify(InnerAct));
+                    innerAct.bid_name="竞价" + bidno;
+                    innerAct.bid_act="true";
+                    localStorage.setItem("innerAct", JSON.stringify(innerAct));
 
                 }
             }
@@ -42,13 +42,13 @@ angular.module('yoDemoApp')
 
         }
         var activities = JSON.parse(localStorage.getItem("activities")) || [];
-        var InnerAct = JSON.parse(localStorage.getItem("InnerAct")) || [];
-        if(InnerAct.act=="true"){
+        var innerAct = JSON.parse(localStorage.getItem("innerAct")) || [];
+        if(innerAct.act=="true"){
             $scope.create_bid=false;
-        }else if(InnerAct.act=="false"|| InnerAct.act==""){
+        }else if(innerAct.act=="false"|| innerAct.act==""){
             var m=0;
             for (var i = 0; i < activities.length; i++) {
-                if (InnerAct.name == activities[i].name) {
+                if (innerAct.name == activities[i].name) {
                     var bidlists=activities[i].bidlists;
                     for(var j=0;j<bidlists.length;j++){
                         if(bidlists[j].status!="status"){
@@ -66,7 +66,7 @@ angular.module('yoDemoApp')
         }
 
         for (var i = 0; i < activities.length; i++) {
-            if (InnerAct.name == activities[i].name) {
+            if (innerAct.name == activities[i].name) {
                 $scope.bidlists=activities[i].bidlists;
 
             }
@@ -74,23 +74,23 @@ angular.module('yoDemoApp')
         $scope.bid_register=function(bid_name){
 
             var activities = JSON.parse(localStorage.getItem("activities")) || [];
-            var InnerAct = JSON.parse(localStorage.getItem("InnerAct")) || [];
+            var innerAct = JSON.parse(localStorage.getItem("innerAct")) || [];
             for (var i = 0; i < activities.length; i++) {
-                if (InnerAct.name == activities[i].name) {
+                if (innerAct.name == activities[i].name) {
                     var bidlists=activities[i].bidlists;
                     for(var j=0;j<bidlists.length;j++){
                         if(bid_name==bidlists[j].bid_name){
-                            InnerAct.bid_name=bid_name;
+                            innerAct.bid_name=bid_name;
 
                             if(bidlists[j].status=="status"){
-                                InnerAct.bid_act="true";
+                                innerAct.bid_act="true";
                             }else if(bidlists[j].status==""){
-                                InnerAct.bid_act="false";
+                                innerAct.bid_act="false";
                             }
 
                         }
                     }
-                    localStorage.setItem("InnerAct", JSON.stringify(InnerAct));
+                    localStorage.setItem("innerAct", JSON.stringify(innerAct));
                 }
 
                 }

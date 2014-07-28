@@ -11,20 +11,20 @@ angular.module('yoDemoApp')
         ];
 
         var activities = JSON.parse(localStorage.getItem("activities")) || [];
-        var InnerAct = JSON.parse(localStorage.getItem("InnerAct")) || [];
-        if (InnerAct.bid_act == "false") {
+        var innerAct = JSON.parse(localStorage.getItem("innerAct")) || [];
+        if (innerAct.bid_act == "false") {
 
             $scope.startbid = false;
-        } else if (InnerAct.bid_act == "true") {
+        } else if (innerAct.bid_act == "true") {
             $scope.startbid = true;
         }
 
         for (var i = 0; i < activities.length; i++) {
-            if (InnerAct.name == activities[i].name) {
+            if (innerAct.name == activities[i].name) {
                 var bidNo = activities[i].bidlists.length;
-                $scope.bid_name = InnerAct.bid_name;
+                $scope.bid_name = innerAct.bid_name;
                 for (var j = 0; j < bidNo; j++) {
-                    if (InnerAct.bid_name == activities[i].bidlists[j].bid_name) {
+                    if (innerAct.bid_name == activities[i].bidlists[j].bid_name) {
                         $scope.bidMessages = activities[i].bidlists[j].bidMessages;
                         $scope.bidMessageNO = activities[i].bidlists[j].bidMessages.length;
                     }
@@ -41,18 +41,18 @@ angular.module('yoDemoApp')
                 if (event.returnValue) {
 
                     var activities = JSON.parse(localStorage.getItem("activities")) || [];
-                    var InnerAct = JSON.parse(localStorage.getItem("InnerAct")) || [];
+                    var innerAct = JSON.parse(localStorage.getItem("innerAct")) || [];
 
                     for (var i = 0; i < activities.length; i++) {
-                        if (InnerAct.name == activities[i].name) {
+                        if (innerAct.name == activities[i].name) {
                             var bidlists = activities[i].bidlists;
                             for (var j = 0; j < bidlists.length; j++) {
-                                if (activities[i].bidlists[j].bid_name == $scope.bid_name && $scope.bid_name == InnerAct.bid_name) {
+                                if (activities[i].bidlists[j].bid_name == $scope.bid_name && $scope.bid_name == innerAct.bid_name) {
                                     activities[i].bidlists[j].status = "";
-                                    InnerAct.bid_act = "false";
+                                    innerAct.bid_act = "false";
 
                                     localStorage.setItem("activities", JSON.stringify(activities));
-                                    localStorage.setItem("InnerAct", JSON.stringify(InnerAct));
+                                    localStorage.setItem("innerAct", JSON.stringify(innerAct));
 
 
                                     $scope.startbid = false;
@@ -61,10 +61,10 @@ angular.module('yoDemoApp')
                         }
                     }
                     for(var i=0;i<activities.length;i++){
-                        if(InnerAct.name==activities[i].name){
+                        if(innerAct.name==activities[i].name){
                             var bidlists=activities[i].bidlists;
                             for(var j=0;j<bidlists.length;j++){
-                                if(InnerAct.bid_name==bidlists[j].bid_name){
+                                if(innerAct.bid_name==bidlists[j].bid_name){
                                     var bidMessages=bidlists[j].bidMessages;
                                     //使用underscore 按升序排列赋给sot_bybidprice
                                     var sot_bybidprice = _.sortBy(bidMessages, function (bidMessages) {
@@ -120,14 +120,14 @@ angular.module('yoDemoApp')
 
         //   refresh方法刷新页面
         $scope.refresh = function () {
-            var InnerAct = JSON.parse(localStorage.getItem("InnerAct")) || [];
+            var innerAct = JSON.parse(localStorage.getItem("innerAct")) || [];
             var activities = JSON.parse(localStorage.getItem('activities')) || [];
             for (var i = 0; i < activities.length; i++) {
-                if (InnerAct.name == activities[i].name) {
+                if (innerAct.name == activities[i].name) {
                     var bidNo = activities[i].bidlists.length;
 
                     for (var j = 0; j < bidNo; j++) {
-                        if (InnerAct.bid_name == activities[i].bidlists[j].bid_name) {
+                        if (innerAct.bid_name == activities[i].bidlists[j].bid_name) {
                             $scope.bidMessages = activities[i].bidlists[j].bidMessages;
                             $scope.bidMessageNO = activities[i].bidlists[j].bidMessages.length;
                         }

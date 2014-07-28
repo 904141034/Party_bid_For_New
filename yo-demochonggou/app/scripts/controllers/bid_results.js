@@ -32,10 +32,10 @@ angular.module('yoDemoApp')
         $scope.return = function () {
             $location.path('/bid_list');
         }
-        var InnerAct = JSON.parse(localStorage.getItem("InnerAct")) || [];
+        var innerAct = JSON.parse(localStorage.getItem("innerAct")) || [];
         var activities = JSON.parse(localStorage.getItem("activities")) || [];
         var sot_bybidPrice = JSON.parse(localStorage.getItem("sot_bybidPrice")) || [];
-        $scope.bid_name = InnerAct.bid_name;
+        $scope.bid_name = innerAct.bid_name;
         $scope.bidMessageNO = sot_bybidPrice.length;
         $scope.bidMessages = sot_bybidPrice;
         console.log(sot_bybidPrice);

@@ -10,14 +10,14 @@ angular.module('yoDemoApp')
             'Karma'
         ];
         var bid_pricegroup = JSON.parse(localStorage.getItem("bid_pricegroup"));
-        var InnerAct = JSON.parse(localStorage.getItem("InnerAct"));
+        var innerAct = JSON.parse(localStorage.getItem("innerAct"));
         var bid_success = JSON.parse(localStorage.getItem("bid_success"));
         var No = 0;
         for (var i = 0; i < bid_pricegroup.length; i++) {
             No += bid_pricegroup[i].count;
         }
         $scope.bidMessageNO = No;
-        $scope.bid_name = InnerAct.bid_name;
+        $scope.bid_name = innerAct.bid_name;
         $scope.bid_pricegroup = bid_pricegroup;
         if (bid_success.person_name != "") {
             $scope.bid_success = bid_success.person_name + " " + "￥" + bid_success.bid_price + "  " + bid_success.phone_number;
