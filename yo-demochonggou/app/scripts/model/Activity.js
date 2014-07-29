@@ -118,6 +118,12 @@ Activity.setbutton2=function($scope){
     $scope.startButton = false;
     $scope.start_stop = "开始";
 };
+Activity.bidLength=function(){
+    var activities=Activity.getActivities();
+    var innerAct=JSON.parse(localStorage.getItem("innerAct"))||{};
+    var bidlists=_.findWhere(activities,{name:innerAct.name}).bidlists;
+    return bidlists.length;
+}
 
 
 
