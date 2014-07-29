@@ -25,10 +25,14 @@ InnerAct.getInnerAct=function()
 };
 InnerAct.Create_bidOrNot=function($scope){
     var innerAct=InnerAct.getInnerAct();
-    innerAct.act=="true"? $scope.create_bid=false: InnerAct.hasNoAct($scope);
+    innerAct.act=="true"? $scope.create_bid=false:InnerAct.hasNoAct($scope);
 };
 InnerAct.hasNoAct=function($scope){
     var bidlists=BidList.get_listBid();
-    var list=_.find(bidlists,{status:"status"});
+    var list=_.findWhere(bidlists,{status:"status"});
     typeof(list)=="undefined"?$scope.create_bid=true: $scope.create_bid=false;
+};
+InnerAct.bidregisterOrNot=function($scope){
+    var innerAct=InnerAct.getInnerAct();
+    innerAct.bid_act == "false"? $scope.startbid = false:$scope.startbid = true;
 };
