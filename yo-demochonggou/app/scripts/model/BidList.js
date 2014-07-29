@@ -54,7 +54,7 @@ BidList.stopBidding_SortAndCountActions=function(){
     var bidlists=BidList.get_listBid();
     var innerAct=InnerAct.getInnerAct();
     var bidMessages=_.findWhere(bidlists,{bid_name:innerAct.bid_name}).bidMessages;
-    BidList.sort_Bybidprice(bidMessages,$scope);
+    BidList.sort_Bybidprice(bidMessages);
     BidList.bid_pricegroup(bidMessages);
 };
 BidList.sort_Bybidprice=function(bidMessages){
@@ -95,4 +95,36 @@ BidList.refresh=function(){
     var innerAct=InnerAct.getInnerAct();
     var bidMessages=_.findWhere(bidlists,{bid_name:innerAct.bid_name}).bidMessages;
     return bidMessages;
+};
+BidList.successResult=function($scope){
+    var bid_success = JSON.parse(localStorage.getItem("bid_success")) || {};
+    var bid_successphone = bid_success.phone_number.substr(0, 3);
+    bid_success.person_name == ""? BidList.successNo($scope):BidList.successYes(bid_success,$scope,bid_successphone);
+};
+BidList.successNo=function(bid_success,$scope){
+    $scope.bid_success = "竞价失败！";
+    $scope.bid_successMessage = "竞价失败！";
+};
+BidList.successYes=function(bid_success,$scope,bid_successphone){
+    $scope.bid_success = bid_success.person_name + " " + "￥" + bid_success.bid_price + "  " + bid_success.phone_number;
+    $scope.bid_successMessage = bid_success.person_name + " " + "￥" +
+    bid_success.bid_price + "  " + bid_successphone + "XXXXXXXX" + " " + "竞价成功！";
+    console.log($scope.bid_success);
+    console.log($scope.bid_successMessage );
+};
+BidList.getSortByPrice=function(){
+    return JSON.parse(localStorage.getItem("sort_bybidprice"))||[];
+};
+BidList.getBidSuccess=function(){
+    return JSON.parse(localStorage.getItem("bid_success"))||{};
+};
+BidList.getBidPriceGroup=function(){
+    return JSON.parse(localStorage.getItem("bid_pricegroup"))||[];
+};
+BidList.getSortByPricelength=function(){
+   return BidList.getSortByPrice().length;
+};
+BidList.judeBidSuccess=function($scope){
+   var bid_success= BidList.getBidSuccess();
+   bid_success.person_name==""? $scope.bid_success="竞价失败！": $scope.bid_success = bid_success.person_name + " " + "￥" + bid_success.bid_price + "  " + bid_success.phone_number;
 };
