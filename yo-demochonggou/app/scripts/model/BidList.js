@@ -54,7 +54,7 @@ BidList.stopBidding_SortAndCountActions=function(){
     var bidlists=BidList.get_listBid();
     var innerAct=InnerAct.getInnerAct();
     var bidMessages=_.findWhere(bidlists,{bid_name:innerAct.bid_name}).bidMessages;
-    BidList.sort_Bybidprice(bidMessages);
+    BidList.sort_Bybidprice(bidMessages,$scope);
     BidList.bid_pricegroup(bidMessages);
 };
 BidList.sort_Bybidprice=function(bidMessages){
@@ -89,4 +89,10 @@ BidList.hasbid_success=function(result){
    var bid_success = _.find(sort_bybidprice, function(bid_success){
         return bid_success.bid_price == result.price; });
    localStorage.setItem('bid_success',JSON.stringify(bid_success));
+};
+BidList.refresh=function(){
+    var bidlists=BidList.get_listBid();
+    var innerAct=InnerAct.getInnerAct();
+    var bidMessages=_.findWhere(bidlists,{bid_name:innerAct.bid_name}).bidMessages;
+    return bidMessages;
 };

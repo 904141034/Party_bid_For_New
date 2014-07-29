@@ -22,21 +22,8 @@ angular.module('yoDemoApp')
             };
         //   refresh方法刷新页面
         $scope.refresh = function () {
-            var innerAct = JSON.parse(localStorage.getItem("innerAct")) || [];
-            var activities = JSON.parse(localStorage.getItem('activities')) || [];
-            for (var i = 0; i < activities.length; i++) {
-                if (innerAct.name == activities[i].name) {
-                    var bidNo = activities[i].bidlists.length;
-
-                    for (var j = 0; j < bidNo; j++) {
-                        if (innerAct.bid_name == activities[i].bidlists[j].bid_name) {
-                            $scope.bidMessages = activities[i].bidlists[j].bidMessages;
-                            $scope.bidMessageNO = activities[i].bidlists[j].bidMessages.length;
-                        }
-                    }
-                }
-            }
+            var bidMessages=BidList.refresh();
+            $scope.bidMessages = bidMessages;
+            $scope.bidMessageNO=bidMessages.length;
         }
-
-
     });
