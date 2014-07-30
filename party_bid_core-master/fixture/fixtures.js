@@ -1,5 +1,5 @@
 function build_sms_json(content, phone_no){
-    return
+   var message=
     {
         messages:[
             {
@@ -9,4 +9,5 @@ function build_sms_json(content, phone_no){
             }
         ]
     };
+    return message;
 }
