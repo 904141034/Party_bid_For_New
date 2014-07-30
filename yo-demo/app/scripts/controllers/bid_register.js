@@ -67,14 +67,12 @@ angular.module('yoDemoApp')
                                 if(InnerAct.bid_name==bidlists[j].bid_name){
                                     var bidMessages=bidlists[j].bidMessages;
                                     //使用underscore 按升序排列赋给sot_bybidprice
-                                    var sot_bybidprice = _.sortBy(bidMessages, function (bidMessages) {
+                                    var sort_bybidprice = _.sortBy(bidMessages, function (bidMessages) {
                                         return bidMessages.bid_price;
                                     });
                                     var sot_bybidPrice = JSON.parse(localStorage.getItem("sot_bybidPrice")) || [];
-                                    sot_bybidPrice=sot_bybidprice;
+                                    sot_bybidPrice=sort_bybidprice;
                                     localStorage.setItem("sot_bybidPrice", JSON.stringify(sot_bybidPrice));
-//                                    $scope.bidMessageNO=sot_bybidprice.length;
-//                                    $scope.bidMessages=sot_bybidprice;
 
                                     var count_pricegroup = _.countBy(bidMessages, function (bidMessages) {
                                         return bidMessages.bid_price;
