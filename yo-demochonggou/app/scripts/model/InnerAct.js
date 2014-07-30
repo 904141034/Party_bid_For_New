@@ -36,3 +36,18 @@ InnerAct.bidregisterOrNot=function($scope){
     var innerAct=InnerAct.getInnerAct();
     innerAct.bid_act == "false"? $scope.startbid = false:$scope.startbid = true;
 };
+InnerAct.judgeAct=function(){
+    var innerAct=InnerAct.getInnerAct();
+    return (innerAct.act != "true" ? InnerAct.judgeActaction1():InnerAct.judgeActaction2());
+
+
+};
+InnerAct.judgeActaction1=function(){
+    var innerAct=InnerAct.getInnerAct();
+    var message;
+    innerAct=="false" ? message = "活动尚未开始，请稍候！": message = "Sorry,活动报名已结束！";
+    return message;
+};
+InnerAct.judgeActaction2=function(){
+    return "";
+};

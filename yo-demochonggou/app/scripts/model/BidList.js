@@ -99,9 +99,9 @@ BidList.refresh=function(){
 BidList.successResult=function($scope){
     var bid_success = JSON.parse(localStorage.getItem("bid_success")) || {};
     var bid_successphone = bid_success.phone_number.substr(0, 3);
-    bid_success.person_name == ""? BidList.successNo($scope):BidList.successYes(bid_success,$scope,bid_successphone);
+    bid_success.person_name == "" ? BidList.successNo($scope):BidList.successYes(bid_success,$scope,bid_successphone);
 };
-BidList.successNo=function(bid_success,$scope){
+BidList.successNo=function($scope){
     $scope.bid_success = "竞价失败！";
     $scope.bid_successMessage = "竞价失败！";
 };

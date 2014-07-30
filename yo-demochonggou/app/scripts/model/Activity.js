@@ -78,7 +78,7 @@ Activity.stop=function($scope,$location){
         $scope.start_stop = "开始";
         var activities = Activity.getActivities();
         var innerAct = JSON.parse(localStorage.getItem("innerAct"))||{};
-        innerAct.act = "false";
+        innerAct.act = "";
         _.findWhere(activities, {name: innerAct.name}).status = "";
         Activity.setActivities(activities);
         InnerAct.setInnerAct(innerAct);
@@ -87,8 +87,9 @@ Activity.stop=function($scope,$location){
 };
 Activity.return_bmMessages=function(){
     var activities=Activity.getActivities();
-    var innerAct=JSON.parse(localStorage.getItem("innerAct"))||{};
-    return _.findWhere(activities,{name:innerAct.name}).bmMessages;
+    var innerAct=InnerAct.getInnerAct();
+    var bmMessages= _.findWhere(activities,{name:innerAct.name}).bmMessages;
+    return bmMessages;
 
 };
 Activity.ActActivity=function($scope){
