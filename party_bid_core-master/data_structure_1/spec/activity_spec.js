@@ -16,12 +16,12 @@ describe("Activity", function() {
         activity.create();
         activity.active();
 
-//        var activity_json = JSON.parse(localStorage.activities);
-//        expect(activity_json.length).toBe(1);
-//        expect(activity_json[0].name).toBe(activity_name);
-//        expect(activity_json[0].sign_ups).toEqual([]);
-//        expect(activity_json[0].bids).toEqual([]);
-//        expect(localStorage.current_activity).toBe(activity_name);
+        var activity_json = JSON.parse(localStorage.activities);
+        expect(activity_json.length).toBe(1);
+        expect(activity_json[0].name).toBe(activity_name);
+        expect(activity_json[0].sign_ups).toEqual([]);
+        expect(activity_json[0].bids).toEqual([]);
+        expect(localStorage.current_activity).toBe(activity_name);
     });
-//
+
 });
