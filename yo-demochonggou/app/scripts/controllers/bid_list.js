@@ -19,7 +19,6 @@ angular.module('yoDemoApp')
             $location.path('/activity_list');
         };
         InnerAct.Create_bidOrNot($scope);
-        console.log($scope.create_bid);
         $scope.bidlists=BidList.get_listBid();
         $scope.bid_register=function(bid_name){
             BidList.clickCertainbid(bid_name);

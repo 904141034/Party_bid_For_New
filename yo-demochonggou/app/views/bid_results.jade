@@ -4,8 +4,8 @@
     .header-left
         button.btn.btn-primary.btn-lg.btn-block.btn-4(ng-click="return()") 返回
 
-#bid_resultsModal.modal.fade
-    .modal-dialog
+#bid_resultsModal.modal.fade.center
+    .modal-dialog.center
         .modal-content
             .modal-body
                 a.close(data-dismiss="modal" ) &times
@@ -28,7 +28,7 @@
 
 footer
     ul.list-style-2(ng-show="showsuccess")
-        li.h4 竞价结果 ：{{bid_success}}
+        li.h4.text-center 竞价结果 ：{{bid_success}}
 
 
     ul.footer-nav.footer-nav-2tabs
