@@ -1,6 +1,9 @@
 function notify_sms_received(sms_json){
-    if(localStorage.is_signing_up=="true"){
+    if(localStorage.is_signing_up=="true" ){
         handleBM(sms_json);
+    }
+     if(localStorage.is_bidding == "true"){
+            handleJJ(sms_json);
     }
 
 
@@ -11,7 +14,7 @@ function handleBM(sms_json){
     var message = mess.replace(/\s/g, "");
     var bm = message.search(/bm/i);
     var phone = sms_json.messages[0].phone;
-    if(bm==0){
+    if(bm==0 && typeof(bm)!="undefined"){
         var name=message.substr(2);
         handleBMfunction(name,phone);
     }
@@ -24,6 +27,34 @@ function handleBMfunction(name,phone){
     if(typeof(result)=="undefined"){
         var sigh_up=new sign_ups(name,phone);
         activity_sign_ups.unshift(sigh_up);
+        Activity.setActivities(activities);
+    }
+
+}
+function handleJJ(sms_json){
+    var mess = sms_json.messages[0].message;
+    var message = mess.replace(/\s/g, "");
+    var jj = message.search(/jj/i);
+    var phone = sms_json.messages[0].phone;
+    if(jj==0 && typeof(jj)!="undefined"){
+        var price=message.substr(2);
+        handleJJfunction(price,phone);
+    }
+}
+function handleJJfunction(price,phone){
+    var activities = JSON.parse(localStorage.activities);
+    var current_activity=localStorage.current_activity;
+    var activity=_.findWhere(activities,{name:current_activity});
+    var sign_ups= _.findWhere(activity.sign_ups,{phone:phone});
+    if(typeof(sign_ups)!="undefined"){
+        var name=sign_ups.name;
+        var biddings=_.findWhere(activity.bids,{name:localStorage.current_bid}).biddings;
+        var bidmessage={};
+        bidmessage.name=name;
+        bidmessage.phone=phone;
+        bidmessage.price=price;
+        biddings.unshift(bidmessage);
+        console.log(activities);
         Activity.setActivities(activities);
     }
 
