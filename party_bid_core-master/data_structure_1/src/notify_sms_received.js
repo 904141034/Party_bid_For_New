@@ -44,7 +44,15 @@ function handleJJ(sms_json){
 function handleJJfunction(price,phone){
     var activities = JSON.parse(localStorage.activities);
     var current_activity=localStorage.current_activity;
+    var current_bid=localStorage.current_bid;
     var activity=_.findWhere(activities,{name:current_activity});
+    var bid= _.findWhere(activity.bids,{name:current_bid});
+    var bidding=_.findWhere(bid.biddings,{phone:phone});
+    if(typeof(bidding)=="undefined"){
+        save_bid(activity,phone,price,activities);
+    }
+}
+function save_bid(activity,phone,price,activities){
     var sign_ups= _.findWhere(activity.sign_ups,{phone:phone});
     if(typeof(sign_ups)!="undefined"){
         var name=sign_ups.name;
@@ -54,8 +62,6 @@ function handleJJfunction(price,phone){
         bidmessage.phone=phone;
         bidmessage.price=price;
         biddings.unshift(bidmessage);
-        console.log(activities);
         Activity.setActivities(activities);
     }
-
 }
