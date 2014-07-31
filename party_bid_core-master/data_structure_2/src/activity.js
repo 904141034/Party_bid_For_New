@@ -15,6 +15,7 @@ Activity.prototype.create=function(){
     Activity.setActivities(activities);
     Activity.setActivityids(activity_ids);
     localStorage.current_activity= activity_id;
+    localStorage.activity_id_generator=(activity_ids.length).toString();
 };
 Activity.getActivities=function(){
     return JSON.parse(localStorage.getItem("activities"))||[];
