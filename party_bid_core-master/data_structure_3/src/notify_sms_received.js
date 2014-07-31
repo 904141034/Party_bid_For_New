@@ -57,7 +57,7 @@ function judge_save_bid(name,phone,price){
     var bids= JSON.parse(localStorage.bids);
     var certain_bid= _.findWhere(bids,{activity_id:localStorage.current_activity,name:localStorage.current_bid});
     var has_bidding= _.findWhere(certain_bid.biddings,{phone:phone});
-    
+
     if(typeof(has_bidding)=="undefined"){
         var bidding={};
         bidding.name=name;
