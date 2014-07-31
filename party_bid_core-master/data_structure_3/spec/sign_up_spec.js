@@ -43,19 +43,19 @@ describe("SignUp", function() {
         localStorage.is_signing_up = "false";
         notify_sms_received(sms_json);
 
-        var activities = JSON.parse(localStorage.activities);
+        var sign_ups = JSON.parse(localStorage.sign_ups);
         expect(sign_ups.length).toBe(0);
         //is empty string
         localStorage.is_signing_up = "";
         notify_sms_received(sms_json);
 
-        var activities = JSON.parse(localStorage.activities);
+        var sign_ups = JSON.parse(localStorage.sign_ups);
         expect(sign_ups.length).toBe(0);
         // no item
-        localStorage.removeItem(is_signing_up);
+        localStorage.removeItem("is_signing_up");
         notify_sms_received(sms_json);
 
-        var activities = JSON.parse(localStorage.activities);
+        var sign_ups = JSON.parse(localStorage.sign_ups);
         expect(sign_ups.length).toBe(0);
     });
 

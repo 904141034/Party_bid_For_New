@@ -7,6 +7,7 @@ Activity.prototype.create=function(){
     var activities=Activity.getActivities();
     activities.unshift(this);
     Activity.setActivities(activities);
+
 };
 Activity.getActivities=function(){
     return JSON.parse(localStorage.getItem("activities"))||[];
